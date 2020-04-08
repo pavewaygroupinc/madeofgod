@@ -1,0 +1,27 @@
+{
+  "site_title": "Made Of God",
+  "site_secondary_color": "#030200",
+  "site_logo": "https://res.cloudinary.com/paveway-technologies/image/upload/v1586333761/madeofgod/logo_text_uoouzn.png",
+  "site_description": "MOG TV is a Cameroonian based television network . It is a platform designed to leap frog Gospel music and arts into higher realms. We create stars This blog serves as a platform to sky rocket talents in the gospel sector to higher heights.",
+  "mobile_logo": "https://res.cloudinary.com/paveway-technologies/image/upload/v1586333761/madeofgod/logo_text_uoouzn.png",
+  "connect": [
+    {
+      "name": "Facebook",
+      "url": "https://facebook.com/madeofgod"
+    },
+    {
+      "url": "https://instagram.com/madeofgod",
+      "name": "Instagram"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/madeofgod"
+    }
+  ],
+  "seo_keywords": "Made Of God, Blogging",
+  "site_primary_color": "#FE0000",
+  "seo_title": "Made Of God",
+  "site_url": "https://madeofgod.com",
+  "seo_description": "MOG TV is a Cameroonian based television network . It is a platform designed to leap frog Gospel music and arts into higher realms. We create stars This blog serves as a platform to sky rocket talents in the gospel sector to higher heights.",
+  "site_favicon": "https://res.cloudinary.com/paveway-technologies/image/upload/v1586333816/madeofgod/favicon_fnl1qs.ico"
+}
