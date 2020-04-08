@@ -28,6 +28,14 @@
             <v-list-item-title>Profiles</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item to="/music-library">
+          <v-list-item-icon>
+            <v-icon>shop_two</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Music Library</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item to="/blogs">
           <v-list-item-icon>
             <v-icon>library_books</v-icon>
@@ -67,6 +75,7 @@
       </nuxt-link>
       <v-btn text to="/" class="hidden-sm-and-down">Home</v-btn>
       <v-btn text to="/profiles" class="hidden-sm-and-down">Profiles</v-btn>
+      <v-btn text to="/music-library" class="hidden-sm-and-down">Music Library</v-btn>
       <v-btn text to="/blogs" class="hidden-sm-and-down">Blogs</v-btn>
       <v-btn text to="/about-us" class="hidden-sm-and-down">About Us</v-btn>
       <v-btn text to="about-us/contact" class="hidden-sm-and-down">Contact</v-btn>

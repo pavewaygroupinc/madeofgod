@@ -9,9 +9,21 @@
         <section class="profiles-container">
             <v-container fluid grid-list-xl>
                 <v-layout row wrap>
+                    <v-flex md8>
+                        <section class="section-padding-100">
+                            <v-container>
+                                <masonry
+                                    :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
+                                    :gutter="{default: '30px', 700: '15px'}"
+                                >
+                                    <profile-card v-for="(item, index) in 12" :key="index"/>
+                                </masonry>
+                            </v-container>
+                        </section>
+                    </v-flex>
                     <v-flex md4>
-                        <section class="music-search--container section-padding-100 bg-img">
-                            <v-container fluid grid-list-xl mt-12 class="music-search--content">
+                        <section class="search--container section-padding-100 bg-img">
+                            <v-container fluid grid-list-xl mt-12 class="search--content">
                                 <v-layout row wrap>
                                     <v-flex sm12>
                                         <div class="search-your-shows-content">
@@ -43,9 +55,6 @@
                             </v-container>
                         </section>
                     </v-flex>
-                    <v-flex md8>
-
-                    </v-flex>
                 </v-layout>
             </v-container>
         </section>
@@ -75,6 +84,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ProfileCard from '@/components/ProfileCard'
 export default {
   head() {
     return {
@@ -82,7 +92,9 @@ export default {
     }
   },
   
-  components: {},
+  components: {
+      ProfileCard
+  },
 
   data() {
     return {
@@ -145,62 +157,6 @@ export default {
         font-weight: 600;
         color: #fff;
         margin-bottom: 0;
-    }
-}
-.music-search--container {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    background-image: url(/bg-6.jpg);
-    position: sticky;
-    top: 129px;
-
-    .search-your-shows-content {
-        position: relative;
-        z-index: 1;
-        margin: 100px 7% 150px;
-        padding: 60px 30px;
-        background: #FE0000;
-        background: -webkit-linear-gradient(to right,#FE0000,#0c0527);
-        background: linear-gradient(to right,#FE0000,#0c0527);
-        opacity: .8;
-
-        h2 {
-            font-size: 38px;
-            color: #fff;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 50px;
-            line-height: 1.3;
-        }
-
-        .musica-btn {
-            background: #FE0000;
-            background: -webkit-linear-gradient(to right,#FE0000,#0c0527);
-            background: linear-gradient(to right,#FE0000,#0c0527);
-            -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            min-width: 133px;
-            height: 50px;
-            color: #fff;
-            border: none;
-            border-radius: 0;
-            padding: 0 20px;
-            font-size: 12px;
-            line-height: 42px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .musica-btn:hover, .musica-btn:focus {
-            font-size: 12px;
-            font-weight: 700;
-            box-shadow: 0 0 50px 0 rgba(0,0,0,.3);
-            color: #fff;
-        }
     }
 }
 </style>

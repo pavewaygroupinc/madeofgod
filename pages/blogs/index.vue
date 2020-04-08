@@ -7,114 +7,519 @@
         </section>
         <div class="bg-gradients"></div>
         <section class="single-post--container">
-            <v-container grid-list-xl mt-12 class="single-post--content">
+            <v-container fluid grid-list-xl>
                 <v-layout row wrap>
-                    <v-flex sm12>
-                        <v-card flat>
-                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
-                            <v-card-title>
-                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
-                                    10 Best Festival that you should’t miss this summer
-                                </nuxt-link>
-                            </v-card-title>
-                            <v-card-actions>
-                                <span class="post-date">May 22, 2018</span>
-                                <v-spacer />
-                                <span class="post-comment--counter">
-                                    <nuxt-link to="/">
-                                        3 Comments
-                                    </nuxt-link>
-                                </span>
-                            </v-card-actions>
-                            <div class="bg-gradients mb-30 w-25"></div>
-                            <v-card-text class="post-content">
-                                <p>
-                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
-                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
-                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
-                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
-                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
-                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                                </p>
-                            </v-card-text>
-                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
-                                Read more
-                            </nuxt-link>
-                        </v-card>
+                    <v-flex md8>
+                        <masonry
+                            :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
+                            :gutter="{default: '30px', 700: '15px'}"
+                        >
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <!-- <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text> -->
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
+                                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
+                                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
+                                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
+                                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                            <v-container grid-list-xl mt-12 class="single-post--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <v-card flat>
+                                            <v-img src="/news/1.jpg" alt="10 Best Festival that you should’t miss this summer" />
+                                            <v-card-title>
+                                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
+                                                    10 Best Festival that you should’t miss this summer
+                                                </nuxt-link>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <span class="post-date">May 22, 2018</span>
+                                                <v-spacer />
+                                                <span class="post-comment--counter">
+                                                    <nuxt-link to="/">
+                                                        3 Comments
+                                                    </nuxt-link>
+                                                </span>
+                                            </v-card-actions>
+                                            <div class="bg-gradients mb-30 w-25"></div>
+                                            <v-card-text class="post-content">
+                                                <p>
+                                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
+                                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi.
+                                                </p>
+                                            </v-card-text>
+                                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
+                                                Read more
+                                            </nuxt-link>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                        </masonry>
                     </v-flex>
-                </v-layout>
-            </v-container>
-            <v-container grid-list-xl mt-12 class="single-post--content">
-                <v-layout row wrap>
-                    <v-flex sm12>
-                        <v-card flat>
-                            <v-img src="/news/2.jpg" alt="10 Best Festival that you should’t miss this summer" />
-                            <v-card-title>
-                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
-                                    10 Best Festival that you should’t miss this summer
-                                </nuxt-link>
-                            </v-card-title>
-                            <v-card-actions>
-                                <span class="post-date">May 22, 2018</span>
-                                <v-spacer />
-                                <span class="post-comment--counter">
-                                    <nuxt-link to="/">
-                                        3 Comments
-                                    </nuxt-link>
-                                </span>
-                            </v-card-actions>
-                            <div class="bg-gradients mb-30 w-25"></div>
-                            <v-card-text class="post-content">
-                                <p>
-                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
-                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
-                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
-                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
-                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
-                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                                </p>
-                            </v-card-text>
-                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
-                                Read more
-                            </nuxt-link>
-                        </v-card>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-            <v-container grid-list-xl mt-12 class="single-post--content">
-                <v-layout row wrap>
-                    <v-flex sm12>
-                        <v-card flat>
-                            <v-img src="/news/3.jpg" alt="10 Best Festival that you should’t miss this summer" />
-                            <v-card-title>
-                                <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
-                                    10 Best Festival that you should’t miss this summer
-                                </nuxt-link>
-                            </v-card-title>
-                            <v-card-actions>
-                                <span class="post-date">May 22, 2018</span>
-                                <v-spacer />
-                                <span class="post-comment--counter">
-                                    <nuxt-link to="/">
-                                        3 Comments
-                                    </nuxt-link>
-                                </span>
-                            </v-card-actions>
-                            <div class="bg-gradients mb-30 w-25"></div>
-                            <v-card-text class="post-content">
-                                <p>
-                                    Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
-                                    laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
-                                    Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
-                                    Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
-                                    Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
-                                    luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                                </p>
-                            </v-card-text>
-                            <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
-                                Read more
-                            </nuxt-link>
-                        </v-card>
+                    <v-flex md4>
+                        <section class="search--container section-padding-100 bg-img">
+                            <v-container fluid grid-list-xl mt-12 class="search--content">
+                                <v-layout row wrap>
+                                    <v-flex sm12>
+                                        <div class="search-your-shows-content">
+                                            <h2>Filter results</h2>
+                                            <div class="search-form">
+                                                <v-form class="justify-content-center">
+                                                    <v-layout wrap row>
+                                                        <v-flex>
+                                                            <v-text-field solo label="Article category" />
+                                                        </v-flex>
+                                                        <v-flex>
+                                                            <v-text-field solo label="Article title" />
+                                                        </v-flex>
+                                                        <v-flex>
+                                                            <button type="submit" class="btn musica-btn m-2">Search</button>
+                                                        </v-flex>
+                                                    </v-layout>
+                                                </v-form>
+                                            </div>
+                                        </div>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                        </section>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -285,5 +690,8 @@ export default {
         color: #fff;
         margin-bottom: 0;
     }
+}
+.search--container {
+    padding-top: 0;
 }
 </style>
