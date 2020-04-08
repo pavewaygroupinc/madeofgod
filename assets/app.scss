@@ -1,0 +1,356 @@
+@import "~/assets/breakpoints.scss";
+a {
+    &:hover,
+    &:focus {
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        text-decoration: none;
+        outline: 0 solid transparent;
+        color: #141414;
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.logo {
+    width: 5rem;
+}
+
+.bg-overlay {
+    position: relative;
+    z-index: 2;
+    background-position: center center;
+    background-size: cover;
+    &:after {
+        background-color: rgba(21, 4, 48, .89);
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+    }
+}
+
+.bg-overlay2 {
+    position: relative;
+    z-index: 2;
+    background-position: center center;
+    background-size: cover;
+    &:after {
+        background-color: rgba(21, 4, 48, .5);
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+    }
+}
+
+.bg-img {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.h-100 {
+    height: 100%!important;
+}
+
+.mb-50 {
+    margin-bottom: 50px!important;
+}
+
+.bg-gradients {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 5px;
+    background: #FE0000;
+    background: -webkit-linear-gradient(to right, #FE0000, #0c0527);
+    background: linear-gradient(to right, #FE0000, #0c0527);
+}
+
+.mb-30 {
+    margin-bottom: 30px!important;
+}
+
+.w-25 {
+    width: 25%!important;
+}
+
+.section-padding-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    @media (max-width: $ml), (max-width: $sm) {
+        padding-top: 40px;
+    }
+}
+
+.section-padding-100-0 {
+    padding-top: 100px;
+    padding-bottom: 0;
+}
+
+.mb-100 {
+    margin-bottom: 100px!important;
+}
+
+.section-heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 70px;
+    text-align: center;
+    @media (max-width: $ml), (max-width: $sm) {
+        margin-bottom: 40px;
+    }
+    h1 {
+        font-size: 48px;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+    p {
+        font-size: 16px;
+        margin-bottom: 0;
+        color: #c5afd9;
+    }
+}
+
+.slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // z-index: -10;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.big-text {
+    position: absolute;
+    color: rgba(255, 255, 255, .1);
+    font-size: 600px;
+    z-index: -10;
+    margin-bottom: 0;
+    @media (max-width: $ml) {
+        font-size: 2em;
+    }
+}
+
+.hero-slides-content {
+    display: inline-block;
+    h2 {
+        position: relative;
+        z-index: 1;
+        font-size: 172px;
+        color: #fff;
+        margin-bottom: 0;
+        font-weight: 600;
+        text-shadow: 18px 0 0 rgba(255, 45, 109, .2);
+        display: inline-block;
+        @media (max-width: $sm) {
+            font-size: 6em;
+            // text-align: center;
+        }
+        @media (max-width: $ml) {
+            font-size: 3em;
+            text-align: center;
+        }
+        span {
+            position: absolute;
+            top: 0;
+            left: -18px;
+            font-size: 172px;
+            color: rgba(132, 57, 255, .2);
+            margin-bottom: 0;
+            font-weight: 600;
+            text-shadow: none;
+            z-index: -5;
+            @media (max-width: $sm) {
+                opacity: 0;
+            }
+            @media (max-width: $ml) {
+                opacity: 0;
+            }
+        }
+    }
+    p {
+        text-align: right;
+        font-size: 60px;
+        margin-top: -70px;
+        color: #fff;
+        position: relative;
+        right: -200px;
+        @media (max-width: $sm) {
+            font-size: 3em;
+            right: 0;
+            // text-align: center;
+            margin-top: -30px;
+        }
+        @media (max-width: $ml) {
+            font-size: 1.5em;
+            right: auto;
+            text-align: center;
+            margin-top: 0;
+        }
+    }
+}
+
+.about-us {
+    background-image: url(/slides/slide5.jpg);
+}
+
+.about--content {
+    h2 {
+        margin-bottom: 35px;
+        color: #262626;
+        line-height: 1.3;
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    p {
+        color: #6a6a6a;
+        font-size: 1.1rem;
+        line-height: 2;
+        font-weight: 500;
+    }
+}
+
+.our-team {
+    margin-top: 8rem;
+    .team-heading {
+        color: #262626;
+        font-size: 48px;
+        line-height: 1.3;
+        margin-bottom: .5rem;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-align: center;
+    }
+    .team-desc {
+        color: #c1c1c1;
+        font-size: 16px;
+        margin-bottom: 0;
+        line-height: 1.3;
+        font-weight: 700;
+        text-align: center;
+    }
+    .team-name {
+        color: #262626;
+        font-size: 1.3rem;
+        line-height: 1.3;
+        margin-bottom: .5rem;
+        text-transform: capitalize;
+        font-weight: 800;
+    }
+    .team-position {
+        color: #414040;
+        font-size: 0.9rem;
+        line-height: 1.3;
+        margin-bottom: .5rem;
+        text-transform: capitalize;
+        font-weight: 800;
+    }
+    .team-email {
+        color: #c1c1c1;
+        font-size: 16px;
+        margin-bottom: 0;
+        line-height: 1.3;
+        font-weight: 700;
+    }
+}
+
+.buy-ticket-btn,
+.contact-us-btn {
+    background: #FE0000;
+    background: -webkit-linear-gradient(to right, #FE0000, #0c0527);
+    background: linear-gradient(to right, #FE0000, #0c0527);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    min-width: 133px !important;
+    height: 42px !important;
+    color: #fff !important;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    padding: 0 20px !important;
+    font-size: 12px !important;
+    line-height: 42px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.musica-btn {
+    background: #cc1573;
+    background: -webkit-linear-gradient(to right, #cc1573, #5722a9);
+    background: linear-gradient(to right, #cc1573, #5722a9);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    min-width: 133px;
+    height: 42px;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 0 20px;
+    font-size: 12px;
+    line-height: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.contact-us-btn:hover,
+.contact-us-btn:focus,
+.buy-ticket-btn:hover,
+.buy-ticket-btn:focus {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, .3);
+    color: #fff !important;
+}
+
+.single-featured-music:hover {
+    .v-image__image {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    // .featured-music-content {
+    //     bottom: 80px;
+    // }
+}
+
+.heading--title {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        width: 80px;
+        height: 2px;
+        border-radius: 5px;
+        background: #FE0000;
+        background: linear-gradient(to right, #FE0000, #0c0527);
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        transition: all .15s;
+    }
+}
+
+@import './index.scss';
+@import './event.scss';

@@ -1,0 +1,25 @@
+{
+  "sitename": "GearHungry",
+  "sitedescription": "Launched in 2011, Gear Hungry is an independent digital magazine focused on one thing: digging up the best gear for guys from all corners of the internet. Every week, we sift through thousands of updates from hundreds&amp;nbsp;web magazines, blogs, retailers and other product compendiums, then hand pick the best amongst them for publishing. Our&amp;nbsp;minimalist, content-focused design and Retina-quality images provide little distraction from what you’re really here for – the goods.",
+  "siteicon": "/images/uploads/icon.png",
+  "showmenu": true,
+  "emailsignup": true,
+  "altlayout": false,
+  "menu": [
+    {
+      "name": "Facebook",
+      "position": "1",
+      "link": "https://facebook.com/gearhungry"
+    },
+    {
+      "name": "Twitter",
+      "position": "2",
+      "link": "https://twitter.com/gearhungry"
+    },
+    {
+      "name": "Instagram",
+      "position": "3",
+      "link": "https://instagram.com/gearhungry"
+    }
+  ]
+}

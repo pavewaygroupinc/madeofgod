@@ -1,0 +1,268 @@
+backend:
+  name: git-gateway
+  branch: master
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - editor
+publish_mode: editorial_workflow
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: paveway-technologies
+    api_key: 792558571522225
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+show_preview_links: true
+# site_url: https://priceless-goldberg-b0774a.netlify.com/
+collections:
+  - label: "Settings"
+    name: "settings"
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Site Settings'
+        file: 'content/_data/settings.json'
+        description: 'General Site Settings'
+        fields:
+          - { label: 'Site title', name: 'site_title', widget: 'string' }
+          - { label: 'Site url', name: 'site_url', widget: 'string' }
+          - {label: "Site Description", name: "site_description", widget: "string"}
+          - {label: "Site Logo (Must be 512x512 or larger square PNG)", name: "site_logo", widget: "image", default: "/logo.svg"}
+          - {label: "Mobile Logo (Must be 512x512 or larger square PNG)", name: "mobile_logo", widget: "image", default: "/logo.png"}
+          - {label: "Site Favicon (Must be 16x16 or larger square ICO)", name: "site_favicon", widget: "image", default: "/favicon.ico"}
+          - { label: 'Primary color', name: 'site_primary_color', widget: 'string' }
+          - { label: 'Secondary color', name: 'site_secondary_color', widget: 'string' }
+          - {label: "SEO Title", name: "seo_title", widget: "string"}
+          - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+          - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+          - {label: "Facebook App Id", name: "facebook_app_id", widget: "string", required: false}
+          - label: 'Social Connections'
+            name: connect
+            widget: list
+            fields:
+              - {label: "Title", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+      - label: "About"
+        name: "about"
+        format: 'json'
+        file: "content/_data/about.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string"}
+          - {label: "Featured Image", name: "thumbnail", widget: "image"}
+          - {label: "Description", name: "description", widget: "markdown"}
+          - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "SEO Title", name: "seo_title", widget: "string"}
+          - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+          - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+          - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
+          - {label: "Updated Date", name: "update", widget: "date", required: false}
+      - label: "Contact"
+        name: "contact"
+        format: 'json'
+        file: "content/_data/contact.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string"}
+          - {label: "Featured Image", name: "thumbnail", widget: "image"}
+          - {label: "Description", name: "description", widget: "markdown"}
+          - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "SEO Title", name: "seo_title", widget: "string"}
+          - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+          - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+          - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
+          - {label: "Updated Date", name: "update", widget: "date", required: false}
+      - label: "Privacy Policy"
+        name: "privacy"
+        format: 'json'
+        file: "content/_data/privacy.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string"}
+          - {label: "Featured Image", name: "thumbnail", widget: "image"}
+          - {label: "Description", name: "description", widget: "markdown"}
+          - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "SEO Title", name: "seo_title", widget: "string"}
+          - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+          - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+          - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
+          - {label: "Updated Date", name: "update", widget: "date", required: false}
+  - name: authors
+    label: Authors
+    label_singular: 'Author'
+    folder: "content/authors/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'json'
+    sort: "date:desc" # Default is title:asc
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string', hint: 'First and Last' }
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
+      - {label: "Facebook", name: "facebook", widget: "string", required: false}
+      - {label: "Instagram", name: "instagram", widget: "string", required: false}
+      - {label: "Twitter", name: "twitter", widget: "string", required: false}
+      - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+      - {label: "Position", name: "position", widget: "number", default: 0}
+      - { name: id, widget: uuid }
+  - name: "slide" # Used in routes, e.g., /admin/collections/slide
+    label: "Slide" # Used in the UI
+    folder: "content/slide/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'json'
+    sort: "date:desc" # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: true}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
+      - {label: "Link", name: "link", widget: "string", required: true}
+      - {label: "Ordering Position", name: "position", widget: "number", default: 0}
+      - { name: id, widget: uuid }
+  - name: "page" # Used in routes, e.g., /admin/collections/page
+    label: "Pages" # Used in the UI
+    folder: "content/page/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: "{{fields.slug}}"
+    format: 'json'
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Template"
+        name: "template"
+        widget: "select"
+        options: ["default", "about"]
+        default: ["default"]
+      - label: "Menu Position"
+        name: "menu_position"
+        widget: "select"
+        options: ["footer", "header"]
+        default: ["header"]
+      - {label: "SEO Title", name: "seo_title", widget: "string"}
+      - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+      - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+      - {label: "Menu Position", name: "position", widget: "number", default: 0}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - { name: id, widget: uuid }
+  - label: 'Categories'
+    name: 'categories'
+    folder: "content/categories/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: category/{{slug}}
+    format: 'json'
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "SEO Title", name: "seo_title", widget: "string"}
+      - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+      - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+      - {label: "Ordering Position", name: "position", widget: "number", default: 0}
+      - { name: id, widget: uuid }
+  - label: 'Genres'
+    name: 'genres'
+    folder: "content/genres/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: genres/{{slug}}
+    format: 'json'
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "SEO Title", name: "seo_title", widget: "string"}
+      - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+      - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+      - {label: "Ordering Position", name: "position", widget: "number", default: 0}
+      - { name: id, widget: uuid }
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blogs" # Used in the UI
+    label_singular: "Blog"
+    description: "Manage all blog posts"
+    folder: "content/blog/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: blogs/{{fields.slug}}
+    format: 'json'
+    sort: "date:desc" # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: Summary 164-220, name: summary, widget: text, required: false, pattern: ['.{164,220}', "Must be within 164 and 220 characters"]}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
+      - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "SEO Title", name: "seo_title", widget: "string"}
+      - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+      - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+      - {label: "Ordering Position", name: "position", widget: "number", default: 0}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
+      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["name"], valueField: "id", displayFields: ["name"], required: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
+      - {label: "Updated Date", name: "update", widget: "date", required: false}
+      - { name: id, widget: uuid }
+  - name: "profiles" # Used in routes, e.g., /admin/collections/profiles
+    label: "Profiles" # Used in the UI
+    folder: "content/profiles/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: profiles/{{fields.slug}}
+    format: 'json'
+    sort: "date:desc" # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: Summary 164-220, name: summary, widget: text, required: true, pattern: ['.{164,220}', "Must be within 164 and 220 characters"]}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false, allow_multiple: true}
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
+        field: {label: Image, name: image, widget: image}
+      - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
+      - {label: "Record label", name: "label", widget: "string", required: false}
+      - {label: "Country", name: "country", widget: "string", required: true}
+      - {label: "City", name: "city", widget: "string", required: true}
+      - label: "Gender"
+        name: "gender"
+        widget: "select"
+        options: ["Male", "Female"]
+        default: ["Male"]
+      - {label: "Body", name: "body", widget: "markdown", required: true}
+      - {label: "SEO Title", name: "seo_title", widget: "string"}
+      - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+      - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+      - {label: "Ordering Position", name: "position", widget: "number", default: 0, required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["name"], valueField: "id", displayFields: ["name"], required: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
+      - {label: "Updated Date", name: "update", widget: "date", required: false}
+      - { name: id, widget: uuid }
+  - label: 'Songs'
+    name: 'songs'
+    folder: "content/songs/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: profiles/{{fields.slug}}
+    format: 'json'
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
+      - {label: "Audio File", name: "audio_file", widget: "file", required: true}
+      - {label: "Description", name: "description", widget: "markdown", required: true}
+      - {label: "Profile", name: "profile", widget: "relation", collection: "profiles", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
+      - {label: "Genre", name: "genre", widget: "relation", collection: "genres", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
+      - {label: "Downloadable", name: "downloadable", widget: "boolean", default: false}
+      - {label: "SEO Title", name: "seo_title", widget: "string"}
+      - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
+      - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
+      - {label: "Ordering Position", name: "position", widget: "number", default: 0}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
+      - {label: "Updated Date", name: "update", widget: "date", required: false}
+      - { name: id, widget: uuid }

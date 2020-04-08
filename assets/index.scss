@@ -1,0 +1,25 @@
+.music-info {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .74);
+    z-index: 10;
+    padding: 30px;
+}
+
+.single-music-player:hover,
+.single-music-player:focus {
+    .music-info {
+        background-color: #FE0000;
+    }
+    img {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    .music-play-button {
+        color: #ffffff !important;
+    }
+}
