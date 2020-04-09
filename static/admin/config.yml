@@ -209,7 +209,7 @@ collections:
         name: "galleryImages"
         widget: "list"
         field: {label: Image, name: image, widget: image}
-      - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
+      - {label: "Genre", name: "genre", widget: "relation", collection: "genres", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
       - {label: "Record label", name: "label", widget: "string", required: false}
       - {label: "Country", name: "country", widget: "string", required: true}
       - {label: "City", name: "city", widget: "string", required: true}
