@@ -8,8 +8,8 @@ publish_mode: editorial_workflow
 media_library:
   name: cloudinary
   config:
-    cloud_name: paveway-technologies
-    api_key: 792558571522225
+    cloud_name: dyt6izhug
+    api_key: 168239225326976
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 show_preview_links: true
