@@ -88,7 +88,8 @@ export default {
         { src: '~/plugins/swiper', ssr: false },
         { src: '~/plugins/social', ssr: false },
         { src: '@/plugins/masonry', ssr: false },
-        { src: '@/plugins/youtube', ssr: false }
+        { src: '@/plugins/youtube', ssr: false },
+        { src: '~/plugins/agile', ssr: false }
     ],
     /*
      ** Nuxt.js dev-modules
@@ -105,7 +106,7 @@ export default {
         '@nuxtjs/dotenv',
         '@nuxtjs/markdownit',
         '@nuxtjs/vuetify',
-        "nuxt-compress",
+        // "nuxt-compress",
         // 'nuxt-purgecss'
         // 'nuxt-responsive-loader'
     ],

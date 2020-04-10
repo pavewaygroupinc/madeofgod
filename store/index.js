@@ -112,7 +112,7 @@ export const actions = {
         await dispatch('getPrivacy')
         await dispatch('getSettings')
         await dispatch('getAuthors')
-            // await dispatch('getSlides')
+        await dispatch('getSlides')
         await dispatch('getGenres')
         await dispatch('getCategories')
             // await dispatch('getPages')
@@ -150,16 +150,16 @@ export const actions = {
         commit('SET_AUTHORS', _.orderBy(items, 'position', 'asc'))
     },
 
-    // async getSlides({ commit }) {
-    //     const context = await require.context('~/content/slide/posts/', false, /\.json$/);
+    async getSlides({ commit }) {
+        const context = await require.context('~/content/slide/posts/', false, /\.json$/);
 
 
-    //     const slides = await context.keys().map(key => ({
-    //         ...context(key)
-    //     }))
+        const slides = await context.keys().map(key => ({
+            ...context(key)
+        }))
 
-    //     commit('SET_SLIDES', _.orderBy(slides, 'position', 'asc'))
-    // },
+        commit('SET_SLIDES', _.orderBy(slides, 'position', 'asc'))
+    },
 
     // async getPages({ commit }) {
     //     const context = await require.context('~/content/page/posts/', false, /\.json$/);
