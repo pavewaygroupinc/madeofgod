@@ -34,7 +34,6 @@ collections:
           - {label: "Site Favicon (Must be 16x16 or larger square ICO)", name: "site_favicon", widget: "image", default: "/favicon.ico"}
           - { label: 'Primary color', name: 'site_primary_color', widget: 'string' }
           - { label: 'Secondary color', name: 'site_secondary_color', widget: 'string' }
-          - {label: "Contact Page Banner", name: "contact_banner", widget: "image", default: "/icon.png"}
           - {label: "About Page Banner", name: "about_banner", widget: "image", default: "/icon.png"}
           - {label: "Profiles Page Banner", name: "profile_banner", widget: "image", default: "/icon.png"}
           - {label: "Blog Page Banner", name: "blog_banner", widget: "image", default: "/icon.png"}
