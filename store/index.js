@@ -115,7 +115,7 @@ export const actions = {
         await dispatch('getSlides')
         await dispatch('getGenres')
         await dispatch('getCategories')
-        await dispatch('getPages')
+            // await dispatch('getPages')
         await dispatch('getPosts')
         await dispatch('getProfiles')
     },

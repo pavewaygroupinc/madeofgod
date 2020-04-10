@@ -14,7 +14,7 @@ var dynamicRoutes = getDynamicPaths({
     '/profile': 'profiles/posts/*.json',
     '/genre': 'genres/posts/*.json',
     '/music-library': 'songs/posts/*.json',
-    '/': 'page/posts/*.json',
+    // '/': 'page/posts/*.json',
     '/category': 'categories/posts/*.json'
 });
 
