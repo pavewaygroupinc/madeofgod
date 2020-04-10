@@ -65,6 +65,9 @@ collections:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Featured Image", name: "thumbnail", widget: "image"}
           - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "Contact Address", name: "contact_address", widget: "string"}
+          - {label: "Contact Phone", name: "contact_phone", widget: "string"}
+          - {label: "Email Address", name: "contact_email", widget: "string"}
           - {label: "SEO Title", name: "seo_title", widget: "string"}
           - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
           - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
