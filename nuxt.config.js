@@ -10,12 +10,12 @@ changeThemeColor()
 // automatically and match it to the path of your Nuxt routes.
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
 var dynamicRoutes = getDynamicPaths({
-    '/blog': 'blog/posts/*.json',
-    '/profile': 'profiles/posts/*.json',
-    '/genre': 'genres/posts/*.json',
-    '/music-library': 'songs/posts/*.json',
+    // '/blog': 'blog/posts/*.json',
+    // '/profile': 'profiles/posts/*.json',
+    // '/genre': 'genres/posts/*.json',
+    // '/music-library': 'songs/posts/*.json',
     // '/': 'page/posts/*.json',
-    '/category': 'categories/posts/*.json'
+    // '/category': 'categories/posts/*.json'
 });
 
 console.log(dynamicRoutes)
