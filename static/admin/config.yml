@@ -248,8 +248,8 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
       - {label: "Audio File", name: "audio_file", widget: "file", required: true}
       - {label: "Description", name: "description", widget: "markdown", required: true}
-      - {label: "Profile", name: "profile", widget: "relation", collection: "profiles", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
-      - {label: "Genre", name: "genre", widget: "relation", collection: "genres", searchFields: ["name"], valueField: "id", displayFields: ["name"], required: true}
+      - {label: "Profile", name: "profile", widget: "relation", collection: "profiles", searchFields: ["name"], valueField: "id", displayFields: ["name"], required: true}
+      - {label: "Genre", name: "genre", widget: "relation", collection: "genres", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
       - {label: "Downloadable", name: "downloadable", widget: "boolean", default: false}
       - {label: "SEO Title", name: "seo_title", widget: "string"}
       - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
