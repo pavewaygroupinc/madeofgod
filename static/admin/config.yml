@@ -29,11 +29,16 @@ collections:
           - { label: 'Site title', name: 'site_title', widget: 'string' }
           - { label: 'Site url', name: 'site_url', widget: 'string' }
           - {label: "Site Description", name: "site_description", widget: "text"}
-          - {label: "Site Logo (Must be 512x512 or larger square PNG)", name: "site_logo", widget: "image", default: "/logo.svg"}
+          - {label: "Site Logo (Must be 512x512 or larger square PNG)", name: "site_logo", widget: "image", default: "/icon.png"}
           - {label: "Mobile Logo (Must be 512x512 or larger square PNG)", name: "mobile_logo", widget: "image", default: "/logo.png"}
           - {label: "Site Favicon (Must be 16x16 or larger square ICO)", name: "site_favicon", widget: "image", default: "/favicon.ico"}
           - { label: 'Primary color', name: 'site_primary_color', widget: 'string' }
           - { label: 'Secondary color', name: 'site_secondary_color', widget: 'string' }
+          - {label: "Contact Page Banner", name: "contact_banner", widget: "image", default: "/icon.png"}
+          - {label: "About Page Banner", name: "about_banner", widget: "image", default: "/icon.png"}
+          - {label: "Profiles Page Banner", name: "profile_banner", widget: "image", default: "/icon.png"}
+          - {label: "Blog Page Banner", name: "blog_banner", widget: "image", default: "/icon.png"}
+          - {label: "Music Page Banner", name: "music_banner", widget: "image", default: "/icon.png"}
           - {label: "SEO Title", name: "seo_title", widget: "string"}
           - {label: "SEO Description", name: "seo_description", widget: "text", pattern: ['.{164,256}', "Must be within 164 and 256 characters"]}
           - {label: "SEO Keywords", name: "seo_keywords", widget: "string"}
