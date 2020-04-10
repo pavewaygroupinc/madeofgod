@@ -8,7 +8,7 @@
         "dev": "nuxt",
         "build": "nuxt build",
         "start": "nuxt start",
-        "generate": "nuxt generate"
+        "generate": "nuxt generate && gulp"
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.3.6",
@@ -16,6 +16,7 @@
         "@nuxtjs/google-analytics": "^2.2.3",
         "@nuxtjs/pwa": "^3.0.0-0",
         "@nuxtjs/vuetify": "^1.0.0",
+        "@nuxtjs/markdownit": "^1.2.7",
         "nuxt": "^2.0.0",
         "nuxt-validate": "^1.0.1",
         "nuxt-webfontloader": "^1.1.0",
@@ -24,9 +25,18 @@
         "vue-moment": "^4.1.0",
         "vue-sweetalert2": "^3.0.3",
         "vue-youtube": "^1.4.0",
-        "vue2-google-maps": "^0.10.7"
+        "vue2-google-maps": "^0.10.7",
+        "vue-social-sharing": "^2.4.7"
     },
     "devDependencies": {
-        "vue-masonry-css": "^1.0.3"
+        "vue-masonry-css": "^1.0.3",
+        "front-matter-markdown": "^0.4.4",
+        "frontmatter-markdown-loader": "^3.1.0",
+        "gulp": "^4.0.2",
+        "gulp-html-minifier": "^0.1.8",
+        "nuxt-compress": "^1.1.0",
+        "nuxt-purgecss": "^0.2.1",
+        "nuxt-responsive-loader": "^2.0.1",
+        "replace-in-file": "^5.0.2"
     }
 }
