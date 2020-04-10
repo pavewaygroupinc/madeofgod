@@ -161,18 +161,18 @@ export const actions = {
         commit('SET_SLIDES', _.orderBy(slides, 'position', 'asc'))
     },
 
-    async getPages({ commit }) {
-        const context = await require.context('~/content/page/posts/', false, /\.json$/);
+    // async getPages({ commit }) {
+    //     const context = await require.context('~/content/page/posts/', false, /\.json$/);
 
 
-        const pages = await context.keys().map(key => ({
-            ...context(key),
-            _path: `/${key.replace('.json', '').replace('./', '')}`,
-            slug: key.replace('.json', '').replace('./', '')
-        }))
+    //     const pages = await context.keys().map(key => ({
+    //         ...context(key),
+    //         _path: `/${key.replace('.json', '').replace('./', '')}`,
+    //         slug: key.replace('.json', '').replace('./', '')
+    //     }))
 
-        commit('SET_PAGES', _.orderBy(pages, 'position', 'asc'))
-    },
+    //     commit('SET_PAGES', _.orderBy(pages, 'position', 'asc'))
+    // },
 
     async getCategories({ commit }) {
         const context = await require.context('~/content/categories/posts/', false, /\.json$/);
