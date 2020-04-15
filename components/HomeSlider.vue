@@ -8,7 +8,7 @@
                     <p>
                         <i>{{slide.subtitle}}</i>
                     </p>
-                    <v-btn rounded dark color="secondary" tag="a" :href="slide.link" large class="text-capitalize" style="font-size: 1.3em;">Discover More</v-btn>
+                    <v-btn rounded dark color="secondary" tag="a" :href="slide.link" large class="text-capitalize btn-discover">Discover More</v-btn>
                 </v-layout>
             </div>
         </agile>
@@ -35,7 +35,7 @@ export default {
 			},
 			
 			options2: {
-				autoplay: false,
+				autoplay: true,
 				centerMode: true,
 				dots: false,
 				navButtons: false,
@@ -75,7 +75,7 @@ export default {
 
 <style lang="css" scoped>
 .main {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .thumbnails {
@@ -136,7 +136,7 @@ export default {
   color: #fff;
   display: -webkit-box;
   display: flex;
-  height: 750px;
+  height: 650px;
   -webkit-box-pack: center;
           justify-content: center;
 }

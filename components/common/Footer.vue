@@ -11,7 +11,7 @@
                         Made of God media/Tv is a platform created to catapult talents in the gospel sector to great heights.
                     </p>
                     <p>
-                        {{appName}} {{ new Date().getFullYear() }} @ All rights reserved
+                        {{settings.site_title}} {{ new Date().getFullYear() }} @ All rights reserved
                     </p>
                 </v-flex>
                 <v-flex md2>
@@ -33,21 +33,18 @@
                 </v-flex>
                 <v-flex md2>
                     <h3 class="headline font-weight-black">
-                        Social
+                        Other Links
                     </h3>
 
                     <div class="footer-link-container py-3">
-                        <nuxt-link to="/" class="footer-link">
-                            Facebook
+                        <nuxt-link to="/privacy-policy" class="footer-link">
+                            Privacy Policy
                         </nuxt-link>
-                        <nuxt-link to="/" class="footer-link">
-                            Twitter
+                        <nuxt-link to="/comment-policy" class="footer-link">
+                            Comment Policy
                         </nuxt-link>
-                        <nuxt-link to="/" class="footer-link">
-                            Instagram
-                        </nuxt-link>
-                        <nuxt-link to="/" class="footer-link">
-                            YouTube
+                        <nuxt-link to="/submitting" class="footer-link">
+                            Submitting
                         </nuxt-link>
                     </div>
                 </v-flex>
@@ -68,7 +65,7 @@
                     >
 
                             <v-card-actions class="grey darken-3 justify-center">
-                                <span class="mr-3 white--text">Powered by: <a :href="developerWebsite" class="" style="text-decoration: none; color: #00C853;" target="_blank">{{developer}}</a></span>
+                                <span class="mr-3 white--text">Powered by: <a href="https://pavewaytechnologies.com" class="" style="text-decoration: none; color: #00C853 !important;" target="_blank">PaveWay Technologies</a></span>
                             </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -78,15 +75,18 @@
 </template>
 
 <script>
-  export default {
+import { mapGetters } from 'vuex'
+export default {
     data() {
-      return {
-        appName: process.env.appName,
-        developer: process.env.appDeveloper,
-        developerWebsite: process.env.appDeveloperWebsite
-      }
+      return {}
+    },
+
+    computed: {
+        ...mapGetters([
+            'settings'
+        ])
     }
-  };
+};
 </script>
 
 <style lang="scss" scoped>

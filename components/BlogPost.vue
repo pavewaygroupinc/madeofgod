@@ -1,47 +1,88 @@
 <template>
-    <v-flex md3 sm12 xs12 class="single-post--content">
-                <v-card flat>
-                    <v-img src="/news/ada.jpg" alt="Ada In Cameroon" />
-                    <v-card-title>
-                        <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="post-title">
-                            Ada In Cameroon
-                        </nuxt-link>
-                    </v-card-title>
-                    <v-card-actions>
-                        <span class="post-date">May 22, 2018</span>
-                        <v-spacer />
-                        <span class="post-comment--counter">
-                        <nuxt-link to="/">
-                            3 Comments
-                        </nuxt-link>
-                        </span>
-                    </v-card-actions>
-                    <div class="bg-gradients mb-30 w-25"></div>
-                    <v-card-text class="post-content">
-                        <p>
-                            Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
-                            laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi.
-                        </p>
-                    </v-card-text>
-                    <nuxt-link :to="{name: 'news.post', params: {id: 'news-post'}}" class="read-more-btn">
-                        Read more
+    <div class="single-post--content my-4">
+        <v-card flat>
+            <nuxt-link :to="post._path">
+                <v-img class="post-img" :src="post.thumbnail" :alt="post.title" />
+            </nuxt-link>
+
+            <div class="share-count">
+            <span class="share-icon"> 
+                <v-btn rounded fab small color="primary">
+                    <v-icon>share</v-icon> 
+                </v-btn>
+            </span>
+            <social-sharing :url="post._path | getFullUrl"
+                :title="post.seo_title"
+                :description="post.seo_description"
+                inline-template>
+                <div class="share-social-list">
+                <network network="facebook" class="social_icon" style="display: block; min-height: 40px; width: 40px; height: 40px; background-color: #3a579a; border-radius: 100px; cursor: pointer;">
+                    <i class="fab fa-facebook-f white--text" style="font-size: 1.6em; transform: translate(90%, 25%);"></i>
+                </network>
+                <network network="twitter" class="et_social_icon my-1" style="display: block; min-height: 40px; width: 40px; height: 40px; background-color: #00abf0; border-radius: 100px; cursor: pointer;">
+                    <i class="fab fa-twitter white--text" style="font-size: 1.6em; transform: translate(30%, 25%)"></i>
+                </network>
+                <network network="pinterest" class="et_social_icon" style="display: block; min-height: 40px; width: 40px; height: 40px; background-color: #cd1c1f; border-radius: 100px; cursor: pointer;">
+                    <i class="fab fa-pinterest-p white--text" style="font-size: 1.6em; transform: translate(50%, 30%)"></i>
+                </network>
+                </div>
+            </social-sharing>
+            </div>
+            <v-card-title>
+                <nuxt-link :to="post._path" class="post-title">
+                    {{post.title}}
+                </nuxt-link>
+            </v-card-title>
+            <v-card-actions>
+                <span class="post-date">
+                    {{$options.filters.monthDay(post.date)}}
+                </span>
+                <v-spacer />
+                <span class="post-comment--counter">
+                    <nuxt-link :to="`/category/${$options.filters.slugify($options.filters.getCategoryById(post.category).title)}`">
+                        {{$options.filters.getCategoryById(post.category).title}}
                     </nuxt-link>
-                </v-card>
-            </v-flex>
+                </span>
+            </v-card-actions>
+            <div class="bg-gradients mb-30 w-25"></div>
+            <v-card-text class="post-content">
+                <p v-text="post.seo_description" />
+            </v-card-text>
+            <nuxt-link :to="post._path" class="read-more-btn">
+                Read more
+            </nuxt-link>
+        </v-card>
+    </div>
 </template>
 
 <script>
 export default {
-    
+    props: {
+        post: {
+            type: Object,
+            required: true
+        }
+    }
 }
 </script>
 
-<style lang="scss">
-// .single-post--container {
-//     padding-top: 45px;
-    
-// }
+<style lang="scss" scoped>
 .single-post--content {
+    .post-img {
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
+        &:hover {
+            transform: scale(1.04);
+            -webkit-transition: all 2s ease-in-out;
+            -moz-transition: all 2s ease-in-out;
+            -o-transition: all 2s ease-in-out;
+            -ms-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+        }
+    }
         .post-title {
             font-size: 30px;
             display: block;

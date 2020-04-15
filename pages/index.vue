@@ -11,13 +11,30 @@
           Latest Posts
         </h1>
       </div>
-      <v-container fluid grid-list-xl >
-          <v-layout row wrap>
-            <blog-post :post="post" v-for="(post, index) in 4" :key="index" />
-          </v-layout>
+      <v-container fluid grid-list-xl>
+        <masonry
+          :cols="{default: 4, 1000: 4, 700: 2, 400: 1}"
+          :gutter="{default: '30px', 700: '15px'}"
+        >
+            <blog-post :post="post" v-for="(post, index) in latestPosts" :key="index" />
+        </masonry>
       </v-container>
     </section>
-    <recently-added />
+    <section class="top-songs section-padding-100">
+      <v-container fluid grid-list-xs>
+        <div class="section-heading">
+          <h1 class="secondary--text">
+            Recently Added
+          </h1>
+        </div>
+        <masonry
+            :cols="{default: 4, 1000: 4, 700: 2, 400: 1}"
+            :gutter="{default: '30px', 700: '15px'}"
+        >
+            <profile-card :profile="profile" v-for="(profile, index) in latestProfiles" :key="index"/>
+        </masonry>
+      </v-container>
+    </section>
     <audio-player/>
     <!-- <v-container fluid>
       <v-layout row wrap>
@@ -68,8 +85,11 @@ import BlogPost from '@/components/BlogPost'
 import HomeSlider from '@/components/HomeSlider'
 import AboutUs from '@/components/common/AboutUs'
 import AudioPlayer from '@/components/AudioPlayer'
-import RecentlyAdded from '@/components/RecentlyAdded'
+import ProfileCard from '@/components/ProfileCard'
 export default {
+  async asyncData ({ params, app, payload, route, store, context }) {
+    // store.dispatch('getSongs')
+  },
   head() {
     return {
       script: [
@@ -82,7 +102,7 @@ export default {
     BlogPost,
     HomeSlider,
     AudioPlayer,
-    RecentlyAdded
+    ProfileCard
   },
 
   data() {
@@ -92,8 +112,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters({})
-  }
+    ...mapGetters([
+      'latestPosts',
+      'latestProfiles'
+    ])
+  },
+
+  mounted() {},
 };
 </script>
 

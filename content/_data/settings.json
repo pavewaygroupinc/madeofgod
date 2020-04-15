@@ -10,15 +10,18 @@
   "connect": [
     {
       "name": "Facebook",
-      "url": "https://facebook.com/madeofgod"
+      "url": "https://facebook.com/madeofgod",
+      "icon": "fab fa-facebook-f"
     },
     {
       "url": "https://instagram.com/madeofgod",
-      "name": "Instagram"
+      "name": "Instagram",
+      "icon": "fab fa-instagram"
     },
     {
       "name": "Twitter",
-      "url": "https://twitter.com/madeofgod"
+      "url": "https://twitter.com/madeofgod",
+      "icon": "fab fa-twitter"
     }
   ],
   "seo_keywords": "Made Of God, Blogging",

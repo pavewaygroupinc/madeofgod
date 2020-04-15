@@ -10,12 +10,11 @@ changeThemeColor()
 // automatically and match it to the path of your Nuxt routes.
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
 var dynamicRoutes = getDynamicPaths({
-    // '/blog': 'blog/posts/*.json',
-    // '/profile': 'profiles/posts/*.json',
-    // '/genre': 'genres/posts/*.json',
-    // '/music-library': 'songs/posts/*.json',
-    // '/': 'page/posts/*.json',
-    // '/category': 'categories/posts/*.json'
+    '/blog': 'blog/posts/*.json',
+    '/profile': 'profiles/posts/*.json'
+        // '/genre': 'genres/posts/*.json',
+        // '/': 'page/posts/*.json',
+        // '/category': 'categories/posts/*.json'
 });
 
 console.log(dynamicRoutes)
@@ -82,6 +81,7 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
+        '~/plugins/disqus',
         "~/plugins/moment",
         '@/plugins/filters',
         { src: '~/plugins/lodash', ssr: false },

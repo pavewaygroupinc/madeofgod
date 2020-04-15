@@ -1,95 +1,47 @@
 <template>
     <div>
-        <section class="team-breadcumb bg-overlay2 bg-img">
+        <section class="page-breadcumb bg-overlay2 bg-img" v-bind:style="{ backgroundImage: 'url(' + settings.about_banner + ')' }">
             <div class="bradcumbContent">
                 <h2>The Team</h2>
             </div>
         </section>
         <div class="bg-gradients"></div>
         <v-container grid-list-xl mt-12 class="team--content">
-            <v-layout row wrap>
-                <v-flex sm12 md6>
-                    <v-img src="/ceo.jpg" alt="Prince Mabrice" />
-                </v-flex>
-                <v-flex sm12 md6>
-                    <h2>
-                      Hello, <br />
-                      It’s Prince Mabrice
-                    </h2>
-                    <p>
-                      Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
-                      laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
-                      Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
-                      Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
-                      Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
-                      luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    </p>
-                </v-flex>
-            </v-layout>
+            <masonry
+                :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
+                :gutter="{default: '30px', 700: '15px'}"
+            >
+                <team-card :team="author" v-for="(author, index) in authors" :key="index"/>
+            </masonry>
         </v-container>
-        <v-container grid-list-xl mt-12 class="team--content">
-            <v-layout row wrap>
-                <v-flex sm12 md6>
-                    <h2>
-                      Hello, <br />
-                      It’s Mbiarrambang Alain
-                    </h2>
-                    <p>
-                      Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, 
-                      laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. 
-                      Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. 
-                      Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. 
-                      Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, 
-                      luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    </p>
-                </v-flex>
-                <v-flex sm12 md6>
-                    <v-img src="/ceo.jpg" alt="Prince Mabrice" />
-                </v-flex>
-            </v-layout>
-        </v-container>
-        <section class="team-banner section-padding-100 bg-img bg-overlay2 mt-12">
-            <v-container>
-                <v-layout>
-                    <v-flex xs8>
-                        <h3>
-                            Unique Way to see a
-                        </h3>
-                        <h1>
-                            Music Concert
-                        </h1>
-                        <p>
-                            Morbi quis venenatis augue, a tincidunt libero. Sed id porttitor elit, eu ultricies mauris.
-                        </p>
-                        <v-btn color="primary" class="contact-us-btn mt-8" :to="{name:'contact'}">
-                            Contact us
-                        </v-btn>
-                    </v-flex>
-                    <v-flex xs4></v-flex>
-                </v-layout>
-            </v-container>
-        </section>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import TeamCard from '@/components/TeamCard'
 export default {
     head() {
         return {
-            title: 'Contact'
+            title: 'The Team'
         }
     },
-  components: {},
+
+    layout: 'contact',
+
+    components: {
+        TeamCard
+    },
 
     data() {
-        return {
-            appName: process.env.appName
-        }
+        return {}
     },
 
     computed: {
-        ...mapGetters({})
+        ...mapGetters([
+            'authors',
+            'settings'
+        ])
     }
 };
 </script>

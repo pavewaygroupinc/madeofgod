@@ -4,32 +4,32 @@ import _ from 'lodash'
 Vue.use(Vuex)
 
 export const state = () => ({
-    pages: [],
-    items: [],
-    slides: [],
-    profiles: [],
-    authors: [],
+    songs: [],
     posts: [],
-    allItems: [],
+    genres: [],
+    slides: [],
+    authors: [],
     about: null,
+    profiles: [],
+    submit: null,
     contact: null,
     privacy: null,
     settings: null,
+    overlay: false,
     categories: [],
     searchItems: [],
-    latestProfiles: [],
-    featuredProfiles: [],
     isClicked: false,
-    genres: []
+    commentPolicy: null
 });
 
 export const getters = {
-    items: state => state.items,
-    pages: state => state.pages,
+    songs: state => state.songs,
     about: state => state.about,
     posts: state => state.posts,
     genres: state => state.genres,
     slides: state => state.slides,
+    submit: state => state.submit,
+    overlay: state => state.overlay,
     contact: state => state.contact,
     privacy: state => state.privacy,
     authors: state => state.authors,
@@ -37,14 +37,19 @@ export const getters = {
     settings: state => state.settings,
     categories: state => state.categories,
     searchItems: state => state.searchItems,
+    commentPolicy: state => state.commentPolicy,
 
-    latestProfiles: state => _.orderBy(state.latestProfiles, 'position', 'asc'),
+    latestProfiles: state => _.orderBy(state.profiles, 'position', 'asc').slice(0, 10),
 
-    featuredProfiles: state => state.featuredProfiles,
+    latestPosts: state => _.orderBy(state.posts, 'position', "asc").slice(0, 10),
 
-    relatedProfiles: (state) => (category, title) => {
-        let items = state.items.filter(item => {
-            return item.category == category && item.title != title
+    latestSongs: state => _.orderBy(state.songs, 'position', "asc").slice(0, 10),
+
+    featuredProfiles: state => _.filter(state.profiles, ['featured', true]),
+
+    relatedProfiles: (state) => (genre, name) => {
+        let items = state.profiles.filter(item => {
+            return item.genre == genre && item.name != name
         })
         return items.slice(0, 3)
     },
@@ -61,11 +66,14 @@ export const mutations = {
     SET_IsClicked(state, data) {
         state.isClicked = data
     },
+    SET_OVERLAY(state) {
+        state.overlay = !state.overlay
+    },
     SET_SLIDES(state, data) {
         state.slides = data
     },
-    SET_PAGES(state, data) {
-        state.pages = data
+    SET_SONGS(state, data) {
+        state.songs = data
     },
     SET_SETTINGS(state, data) {
         state.settings = data
@@ -79,6 +87,12 @@ export const mutations = {
     SET_PRIVACY(state, data) {
         state.privacy = data
     },
+    SET_SUBMIT(state, data) {
+        state.submit = data
+    },
+    SET_COMMENT_POLICY(state, data) {
+        state.commentPolicy = data
+    },
     SET_CATEGORIES(state, data) {
         state.categories = data
     },
@@ -87,12 +101,6 @@ export const mutations = {
     },
     SET_AUTHORS(state, data) {
         state.authors = data
-    },
-    SET_FEATURED_PROFILES(state, data) {
-        state.featuredProfiles = data
-    },
-    SET_LATEST_PROFILES(state, data) {
-        state.latestProfiles = data
     },
     SET_POSTS(state, data) {
         state.posts = data
@@ -110,12 +118,13 @@ export const actions = {
         await dispatch('getAbout')
         await dispatch('getContact')
         await dispatch('getPrivacy')
+        await dispatch('getSubmit')
+        await dispatch('getCommentPolicy')
         await dispatch('getSettings')
         await dispatch('getAuthors')
         await dispatch('getSlides')
         await dispatch('getGenres')
         await dispatch('getCategories')
-            // await dispatch('getPages')
         await dispatch('getPosts')
         await dispatch('getProfiles')
     },
@@ -140,6 +149,16 @@ export const actions = {
         commit('SET_PRIVACY', privacy)
     },
 
+    getSubmit({ commit }) {
+        const submit = require('~/content/_data/privacy.json');
+        commit('SET_SUBMIT', submit)
+    },
+
+    getCommentPolicy({ commit }) {
+        const comment = require('~/content/_data/comment-policy.json');
+        commit('SET_COMMENT_POLICY', comment)
+    },
+
     async getAuthors({ commit }) {
         const context = await require.context('~/content/authors/posts/', false, /\.json$/)
 
@@ -160,19 +179,6 @@ export const actions = {
 
         commit('SET_SLIDES', _.orderBy(slides, 'position', 'asc'))
     },
-
-    // async getPages({ commit }) {
-    //     const context = await require.context('~/content/page/posts/', false, /\.json$/);
-
-
-    //     const pages = await context.keys().map(key => ({
-    //         ...context(key),
-    //         _path: `/${key.replace('.json', '').replace('./', '')}`,
-    //         slug: key.replace('.json', '').replace('./', '')
-    //     }))
-
-    //     commit('SET_PAGES', _.orderBy(pages, 'position', 'asc'))
-    // },
 
     async getCategories({ commit }) {
         const context = await require.context('~/content/categories/posts/', false, /\.json$/);
@@ -252,20 +258,6 @@ export const actions = {
         commit('SET_RELATED_PROFILES', _.orderBy(profiles, 'position', 'asc'))
     },
 
-    async fetchFeaturedProfiles({ commit }) {
-        const context = await require.context('~/content/profiles/posts/', false, /\.json$/)
-
-        const searchprofiles = await context.keys().map(key => ({
-            ...context(key),
-            _path: `/profile/${key.replace('.json', '').replace('./', '')}`,
-            slug: key.replace('.json', '').replace('./', '')
-        }))
-
-        let items = searchprofiles.filter(item => item.featured)
-
-        commit('SET_FEATURED_PROFILES', _.orderBy(items, 'position', 'asc'))
-    },
-
     async getFeaturedPosts({ commit }) {
         const context = await require.context('~/content/blog/posts/', false, /\.json$/);
 
@@ -280,41 +272,62 @@ export const actions = {
         commit('SET_FEATURED_POSTS', items)
     },
 
-    async fetchAllSongs({ commit }) {
-        const context = await require.context('~/content/songs/posts/', false, /\.json$/)
+    async filterProfiles({ commit }, keywords) {
+        console.log(keywords)
+        commit('SET_OVERLAY')
 
-        const items = await context.keys().map(key => ({
+        const context = await require.context('~/content/profiles/posts/', false, /\.json$/)
+
+        const collections = await context.keys().map(key => ({
             ...context(key),
-            _path: `/music-library/${key.replace('.json', '').replace('./', '')}`,
+            _path: `/profile/${key.replace('.json', '').replace('./', '')}`,
             slug: key.replace('.json', '').replace('./', '')
         }))
 
-        commit('SET_SONGS', _.orderBy(items, 'position', 'asc'))
+        let items;
+
+        if (keywords.genre && !keywords.artist && !keywords.country) {
+            items = collections.filter(item => Vue.options.filters.getGenreById(item.genre).title.includes(keywords.genre))
+        } else if (!keywords.genre && keywords.artist && !keywords.country) {
+            items = collections.filter(item => item.name.toLowerCase().includes(keywords.artist.toLowerCase()))
+        } else if (!keywords.genre && !keywords.artist && keywords.country) {
+            items = collections.filter(item => item.country.toLowerCase().includes(keywords.country.toLowerCase()))
+        } else if (keywords.genre && keywords.artist && !keywords.country) {
+            items = collections.filter(item => item.name.toLowerCase().includes(keywords.artist.toLowerCase()) && Vue.options.filters.getGenreById(item.genre).title.includes(keywords.genre))
+        } else if (keywords.genre && !keywords.artist && keywords.country) {
+            items = collections.filter(item => item.country.toLowerCase().includes(keywords.country.toLowerCase()) && Vue.options.filters.getGenreById(item.genre).title.includes(keywords.genre))
+        } else if (!keywords.genre && keywords.artist && keywords.country) {
+            items = collections.filter(item => item.name.toLowerCase().includes(keywords.artist.toLowerCase()) && item.country.toLowerCase().includes(keywords.country.toLowerCase()))
+        } else {
+            items = collections.filter(item => item.name.toLowerCase().includes(keywords.artist.toLowerCase()) && item.country.toLowerCase().includes(keywords.country.toLowerCase()) && Vue.options.filters.getGenreById(item.genre).title.includes(keywords.genre))
+        }
+
+        commit('SET_PROFILES', _.orderBy(items, 'position', 'asc'))
+        commit('SET_OVERLAY')
     },
 
-    async searchItems({ commit }, word) {
+    async filterPosts({ commit }, keywords) {
+        commit('SET_OVERLAY')
+
         const context = await require.context('~/content/blog/posts/', false, /\.json$/)
 
-        const searchposts = await context.keys().map(key => ({
+        const collections = await context.keys().map(key => ({
             ...context(key),
             _path: `/blog/${key.replace('.json', '').replace('./', '')}`,
-            slug: key.replace('.json', '').replace('./', ''),
-            item_type: 'blog'
+            slug: key.replace('.json', '').replace('./', '')
         }))
 
-        const context1 = await require.context('~/content/profiles/posts/', false, /\.json$/)
+        let items;
 
-        const searchprofiles = await context1.keys().map(key => ({
-            ...context1(key),
-            _path: `/${key.replace('.json', '').replace('./', '')}`,
-            slug: key.replace('.json', '').replace('./', ''),
-            item_type: 'profile'
-        }))
+        if (keywords.category && !keywords.title) {
+            items = collections.filter(item => Vue.options.filters.getCategoryById(item.category).title.includes(keywords.category))
+        } else if (!keywords.category && keywords.title) {
+            items = collections.filter(item => item.title.toLowerCase().includes(keywords.title.toLowerCase()))
+        } else {
+            items = collections.filter(item => item.title.toLowerCase().includes(keywords.title.toLowerCase()) && Vue.options.filters.getCategoryById(item.category).title.includes(keywords.category))
+        }
 
-        let collections = [...searchprofiles, ...searchposts]
-
-        let items = collections.filter(item => item.title.toLowerCase().includes(word.toLowerCase()))
-
-        commit('SET_SEARCH_ITEMS', _.orderBy(items, 'position', 'asc'))
+        commit('SET_POSTS', _.orderBy(items, 'position', 'asc'))
+        commit('SET_OVERLAY')
     }
 };

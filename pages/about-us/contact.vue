@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="contact-breadcumb bg-overlay2 bg-img">
+        <section class="page-breadcumb bg-overlay2 bg-img" v-bind:style="{ backgroundImage: 'url(' + settings.about_banner + ')' }">
             <div class="bradcumbContent">
                 <h2>Contact</h2>
             </div>
@@ -9,34 +9,26 @@
         <v-container grid-list-lg mt-12>
             <v-layout row wrap>
                 <v-flex sm12 md6>
-                    <img src="/logo.png" class="logo" :alt="appName" />
+                    <img src="/logo.png" class="logo" :alt="settings.site_title" />
                     <p>
-                        {{appName}} {{ new Date().getFullYear() }} @ All rights reserved
+                        {{settings.site_title}} {{ new Date().getFullYear() }} @ All rights reserved
                     </p>
                     <p>
-                        <v-btn icon>
-                            <v-icon small>fab fa-facebook-f</v-icon>
-                        </v-btn>
-                        <v-btn icon>
-                            <v-icon small>fab fa-twitter</v-icon>
-                        </v-btn>
-                        <v-btn icon>
-                            <v-icon small>fab fa-instagram</v-icon>
+                        <v-btn icon v-for="(social,index) in settings.connect" :key="index">
+                            <v-icon small>{{social.icon}}</v-icon>
                         </v-btn>
                     </p>
                     <p>
-                        Sed dapibus varius massa vel auctor. Nulla massa dui, posuere non erat in, 
-                        eleifend mattis dui. Vivamus luctus luctus rhoncus. Donec sagittis nulla id 
-                        finibus iaculis. Mauris odio tortor, suscipit non elit ut, imperdiet ornare erat.
+                        {{contact.description}}
                     </p>
                     <h6 class="contact-address">
-                        <v-icon>fas fa-map-marker-alt</v-icon> 1481 Creekside Lane Avila Beach, CA 931
+                        <v-icon>fas fa-map-marker-alt</v-icon> {{contact.contact_address}}
                     </h6>
                     <h6 class="contact-address">
-                        <v-icon>smartphone</v-icon> +53 345 7953 32453
+                        <v-icon>smartphone</v-icon> {{contact.contact_phone}}
                     </h6>
                     <h6 class="contact-address">
-                        <v-icon>email</v-icon> yourmail@gmail.com
+                        <v-icon>email</v-icon> {{contact.contact_email}}
                     </h6>
                 </v-flex>
                 <v-flex sm12 md6>
@@ -81,28 +73,6 @@
                 </v-flex>
             </v-layout>
         </v-container>
-        <section class="contact-banner section-padding-100 bg-img bg-overlay2 mt-12">
-            <v-container>
-                <v-layout>
-                    <v-flex xs9>
-                        <h3>
-                            Contact us now
-                        </h3>
-                        <h1>
-                            Do you have a question?
-                        </h1>
-                        <p>
-                            Morbi quis venenatis augue, a tincidunt libero. Sed id porttitor elit, eu ultricies mauris.
-                        </p>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-btn color="primary" class="contact-us-btn">
-                            Contact us
-                        </v-btn>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-        </section>
     </div>
 </template>
 
@@ -111,19 +81,35 @@ import { mapGetters } from 'vuex'
 export default {
     head() {
         return {
-            title: 'Contact'
+            title: 'Contact',
+            meta: [
+                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                { hid: 'keywords', name: 'keywords', content: this.settings.seo_keywords || '' },
+                { hid: 'description', name: 'description', content: this.settings.seo_description },
+                { hid: "twittertitle", name: "twitter:title", content: this.settings.seo_title },
+                { hid: "twitterdesc", name: "twitter:description", content: this.settings.seo_description || '' },
+                { hid: "twitterhashtags", name: "twitter:hashtags", content: this.seo_keywords },
+                { hid: 'ogtype', property: 'og:type', content: "article" },
+                { hid: 'ogtitle', property: 'og:title', content: this.settings.seo_title },
+                { hid: 'ogdescription', property: 'og:description', content: this.settings.seo_description },
+                { hid: 'ogurl', property: 'og:url', content: this.$options.filters.getFullUrl(this.$route.fullPath) }
+            ]
         }
     },
-  components: {},
+
+    layout: 'contact',
+    
+    components: {},
 
     data() {
-        return {
-            appName: process.env.appName
-        }
+        return {}
     },
 
     computed: {
-        ...mapGetters({})
+        ...mapGetters([
+            'settings',
+            'contact'
+        ])
     }
 };
 </script>

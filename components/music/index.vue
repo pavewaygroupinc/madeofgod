@@ -1,68 +1,46 @@
 <template>
-    <div class="featured-album-area section-padding-100">
-        <v-container>
-            <v-layout row>
-                <v-flex xs12>
-                    <v-container class="featured-album-content">
-                        <v-layout row wrap>
-                            <v-flex md6>
-                                <v-img src="/madeofgod.jpg" class="h-100" />
-                                <!-- <div class="album-thumbnail h-100 bg-img" style="background-image: url(madeofgod.jpg);"></div> -->
-                            </v-flex>
-                            <v-flex sm6>
-                                <div class="album-songs h-100">
-                                    <v-container grid-list-xl>
-                                        <v-layout row wrap>
-                                            <v-flex md8>
-                                                <h6 class="headline font-weight-black" style="color: #c5afd9;">Featured songs</h6>
-                                                <!-- <h4>Love is all Around</h4> -->
-                                            </v-flex>
-                                            <v-flex md4>
-                                                <nuxt-link to="/music-library" class="btn buy-ticket-btn">Go to Library</nuxt-link>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-                                    <v-container grid-list-xl tabindex="1" style="overflow: hidden; outline: none;">
-                                        <music-list
-                                            :playlist="playlist"
-                                            :selectedTrack="selectedTrack"
-                                            @selecttrack="selectTrack"
-                                            @playtrack="play" 
-                                        />
-                                    </v-container>
-
-                                    <v-container class="player">
-                                        <player-controls :loop="loop"
-                                            :shuffle="shuffle"
-                                            :progress="progress"
-                                            @playtrack="play"
-                                            @pausetrack="pause"
-                                            @stoptrack="stop"
-                                            @skiptrack="skip"
-                                            @toggleloop="toggleLoop"
-                                            @toggleshuffle="toggleShuffle"
-                                            @updateseek="setSeek"
-                                            :trackInfo="getTrackInfo" />
-                                    </v-container>
-                                </div>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </div>
+	<v-container fluid grid-list-xl>
+    	<v-layout row wrap>
+        	<v-flex md8>
+                <section class="music-library--area section-padding-100">
+                    <player-controls :loop="loop"
+						:shuffle="shuffle"
+						:progress="progress"
+						@playtrack="play"
+						@pausetrack="pause"
+						@stoptrack="stop"
+						@skiptrack="skip"
+						@toggleloop="toggleLoop"
+						@toggleshuffle="toggleShuffle"
+						@updateseek="setSeek"
+						:trackInfo="getTrackInfo" 
+					/>
+					<music-list :playlist="playlist"
+						:selectedTrack="selectedTrack"
+						@selecttrack="selectTrack"
+						@playtrack="play" 
+					/>
+                </section>
+            </v-flex>
+            <v-flex md4>
+                <section class="">
+					<artist-card v-if="getTrackInfo.artist" :profile="$options.filters.getProfileById(getTrackInfo.artist)" />
+                </section>
+            </v-flex>
+        </v-layout>
+	</v-container>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import {Howl, Howler} from 'howler'
-import MusicList from './music/MusicList'
-import PlayerControls from './music/PlayerControls'
-export default {
+	import { mapGetters } from 'vuex'
+	import {Howl, Howler} from 'howler'
+	import MusicList from './MusicList.vue'
+	import PlayerControls from './PlayerControls.vue'
+	import ArtistCard from './ArtistCard'
+	export default {
 	    data () {
 	      return {
-	        playlist: this.$options.filters.getLatestSongs(),
+	        playlist: this.$options.filters.getSongs(),
 	        selectedTrack: null,
 	        index: 0,
 	        playing: false,
@@ -74,6 +52,7 @@ export default {
 
 		components: {
 			MusicList,
+			ArtistCard,
 			PlayerControls
 		},
 
@@ -226,31 +205,3 @@ export default {
 	    }
 	};
 </script>
-
-<style lang="scss" scoped>
-.featured-album-area {
-    // position: relative;
-    // z-index: 1;
-    background-color: #0c0527;
-}
-
-.featured-album-content {
-    // position: relative;
-    // z-index: 2;
-    background-color: #27203f;
-    // width: 100%;
-    // height: 570px;
-
-    .playlist-title {
-        font-weight: 500;
-        color: rgba(255,255,255,.5);
-        z-index: auto;
-        margin-bottom: 0;
-        font-size: 1rem;
-    }
-
-    .playlist-timer {
-        color: rgba(255,255,255,.5);
-    }
-}
-</style>

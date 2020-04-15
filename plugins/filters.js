@@ -1,6 +1,7 @@
 import Vue from 'vue'
-
+import _ from 'lodash'
 import moment from 'moment'
+import { Howl, Howler } from 'howler'
 
 export function slugify(value) {
     value = value.replace(/^\s+|\s+$/g, ''); // trim
@@ -63,7 +64,7 @@ export function lastlyUpdated(date) {
 export function monthDay(date) {
     const x = moment(new Date(date.replace('th,', '').replace('rd,', '').replace('st,', '')), "MM/DD/YYYY")
 
-    return x.format("MM/DD")
+    return x.format("MMMM DD, YYYY")
 }
 
 export function getYear(date) {
@@ -82,7 +83,7 @@ export function minutes(value) {
     return value
 }
 
-export function formatSecondsAsTime(secs) {
+export function formatSecondsAsTime(secs, format) {
     var hr = Math.floor(secs / 3600);
     var min = Math.floor((secs - (hr * 3600)) / 60);
     var sec = Math.floor(secs - (hr * 3600) - (min * 60));
@@ -97,11 +98,56 @@ export function formatSecondsAsTime(secs) {
     return min + ':' + sec;
 }
 
+export function getLatestSongs() {
+    const context = require.context('~/content/songs/posts/', false, /\.json$/);
+
+
+    const songs = context.keys().map(key => ({
+        ...context(key),
+        _path: `/music-library/${key.replace('.json', '').replace('./', '')}`,
+        slug: key.replace('.json', '').replace('./', ''),
+        howl: null,
+        display: true
+    }))
+
+    return _.orderBy(songs, 'date', "asc").slice(0, 3)
+}
+
+export function getSongs(number = 5) {
+    const context = require.context('~/content/songs/posts/', false, /\.json$/);
+
+
+    const songs = context.keys().map(key => ({
+        ...context(key),
+        _path: `/music-library/${key.replace('.json', '').replace('./', '')}`,
+        slug: key.replace('.json', '').replace('./', ''),
+        howl: null,
+        display: true
+    }))
+
+    return _.orderBy(songs, 'position', "asc").slice(0, number)
+}
+
+export function getProfileById(id) {
+    const context = require.context('~/content/profiles/posts/', false, /\.json$/);
+
+    const profiles = context.keys().map(key => ({
+        ...context(key),
+        _path: `/profile/${key.replace('.json', '').replace('./', '')}`,
+        slug: key.replace('.json', '').replace('./', '')
+    }))
+
+    let profile = profiles.filter(item => item.id.includes(id))
+
+    return profile[0]
+}
+
 export function getCategoryById(id) {
     const context = require.context('~/content/categories/posts/', false, /\.json$/);
 
     const categories = context.keys().map(key => ({
         ...context(key),
+        _path: `/category/${key.replace('.json', '').replace('./', '')}`,
         slug: key.replace('.json', '').replace('./', '')
     }))
 
@@ -134,6 +180,7 @@ export function getGenreById(id) {
 
     const genres = context.keys().map(key => ({
         ...context(key),
+        _path: `/genre/${key.replace('.json', '').replace('./', '')}`,
         slug: key.replace('.json', '').replace('./', '')
     }))
 
@@ -192,15 +239,18 @@ const filters = {
     monthDay,
     minutes,
     getYear,
+    getSongs,
     getFullUrl,
     publishTime,
     getGenreById,
+    getProfileById,
     getEmbededUrl,
     getAuthorById,
     lastlyUpdated,
     titleTemplate,
     twitterSharer,
     pintressSharer,
+    getLatestSongs,
     facebookSharer,
     getCategoryById,
     getCategoryBySlug,

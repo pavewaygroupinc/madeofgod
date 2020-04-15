@@ -3,9 +3,10 @@
     :loading="loading"
     class="single-profile--content my-4 elevation-10"
     flat
+    width="400"
   >
     <nuxt-link :to="profile._path">
-        <v-img class="profile-img" :src="profile.thumbnail" :alt="profile.name" />
+        <img class="profile-img" :src="profile.thumbnail" :alt="profile.name" />
     </nuxt-link>
 
     <div class="share-count">
@@ -103,6 +104,12 @@
     -ms-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    object-position: top;
+    -webkit-object-fit: cover;
+    -moz-object-fit: cover;
     &:hover {
       transform: scale(1.04);
       -webkit-transition: all 2s ease-in-out;

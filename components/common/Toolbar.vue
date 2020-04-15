@@ -9,7 +9,7 @@
       color="white"
       light
     >
-      <img src="/logo.png" :alt="appName" style="height: 12rem">
+      <img src="/logo.png" :alt="settings.site_title" style="height: 12rem">
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item to="/">
@@ -20,7 +20,7 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to="/profiles">
+        <v-list-item to="/profile">
           <v-list-item-icon>
             <v-icon>shop_two</v-icon>
           </v-list-item-icon>
@@ -36,7 +36,7 @@
             <v-list-item-title>Music Library</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to="/blogs">
+        <v-list-item to="/blog">
           <v-list-item-icon>
             <v-icon>library_books</v-icon>
           </v-list-item-icon>
@@ -71,23 +71,17 @@
       height="85"
     >
       <nuxt-link to="/" class="toolbar-logo">
-        <img src="/logo_text.png" :alt="appName" />
+        <img src="/logo_text.png" :alt="settings.site_title" />
       </nuxt-link>
-      <v-btn text to="/" class="hidden-sm-and-down">Home</v-btn>
-      <v-btn text to="/profiles" class="hidden-sm-and-down">Profiles</v-btn>
-      <v-btn text to="/music-library" class="hidden-sm-and-down">Music Library</v-btn>
-      <v-btn text to="/blogs" class="hidden-sm-and-down">Blogs</v-btn>
-      <v-btn text to="/about-us" class="hidden-sm-and-down">About Us</v-btn>
-      <v-btn text to="about-us/contact" class="hidden-sm-and-down">Contact</v-btn>
+      <v-btn text to="/" class="hidden-sm-and-down white--text">Home</v-btn>
+      <v-btn text to="/profile" class="hidden-sm-and-down white--text">Profiles</v-btn>
+      <v-btn text to="/music-library" class="hidden-sm-and-down white--text">Music Library</v-btn>
+      <v-btn text to="/blog" class="hidden-sm-and-down white--text">Blogs</v-btn>
+      <v-btn text to="/about-us" class="hidden-sm-and-down white--text">About Us</v-btn>
+      <v-btn text to="/about-us/contact" class="hidden-sm-and-down white--text">Contact</v-btn>
       <v-spacer />
-      <v-btn icon class="hidden-sm-and-down">
-        <v-icon>fab fa-facebook-f</v-icon>
-      </v-btn>
-      <v-btn icon class="hidden-sm-and-down">
-        <v-icon>fab fa-twitter</v-icon>
-      </v-btn>
-      <v-btn icon class="hidden-sm-and-down">
-        <v-icon>fab fa-instagram</v-icon>
+      <v-btn icon class="hidden-sm-and-down" v-for="(social, index) in settings.connect" :key="index" tag="a" target="_Blank" :href="social.url">
+        <v-icon color="white">{{social.icon}}</v-icon>
       </v-btn>
       <v-spacer class="hidden-md-and-up"/>
       <v-app-bar-nav-icon class="hidden-md-and-up" @click.stop="drawer = !drawer" />
@@ -100,38 +94,15 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      appName: process.env.appName,
       drawer: false,
-      mini: false,
-      items: [
-        { icon: 'keyboard_arrow_up', 'icon-alt': 'keyboard_arrow_down',
-          text: 'Home',
-          model: false,
-          children: [
-            { icon: 'dashboard', text: 'Dashboard', to: 'dashboard' },
-            { icon: 'work', text: 'Siteinfo', to: 'siteinfo' },
-            { icon: 'people', text: 'Users', to: 'users' },
-            { icon: 'slideshow', text: 'Slides', to: 'slides' },
-            // { icon: 'account_circle', text: 'Profile', to: 'auth.profile' },
-          ]
-        },
-        { icon: 'keyboard_arrow_up', 'icon-alt': 'keyboard_arrow_down',
-          text: 'Manage',
-          model: false,
-          children: [
-            { icon: 'event', text: 'Events', to: 'events' },
-            // { icon: 'library_music', text: 'Songs', to: 'auth.songs' },
-            { icon: 'collections_bookmark', text: 'Articles', to: 'articles' },
-            // { icon: 'fas fa-school', text: 'Schools', to: 'erp.schools' },
-            // { icon: 'location_city', text: 'Departments', to: 'erp.departments' },
-          ]
-        },
-      ]
+      mini: false
     }
   },
 
   computed: {
-    ...mapGetters({})
+    ...mapGetters([
+      'settings'
+    ])
   },
 
   methods: {}

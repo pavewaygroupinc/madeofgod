@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="about-breadcumb bg-overlay2 bg-img">
+        <section class="page-breadcumb bg-overlay2 bg-img" v-bind:style="{ backgroundImage: 'url(' + settings.about_banner + ')' }">
             <div class="bradcumbContent">
                 <h2>About Us</h2>
             </div>
@@ -8,27 +8,6 @@
         <div class="bg-gradients"></div>
         <about-us/>
         <team-members/>
-        <section class="about-banner section-padding-100 bg-img bg-overlay2 mt-12">
-            <v-container>
-                <v-layout>
-                    <v-flex xs8>
-                        <h3>
-                            Unique Way to see a
-                        </h3>
-                        <h1>
-                            Music Concert
-                        </h1>
-                        <p>
-                            Morbi quis venenatis augue, a tincidunt libero. Sed id porttitor elit, eu ultricies mauris.
-                        </p>
-                        <v-btn color="primary" class="contact-us-btn mt-8" :to="{name:'contact'}">
-                            Contact us
-                        </v-btn>
-                    </v-flex>
-                    <v-flex xs4></v-flex>
-                </v-layout>
-            </v-container>
-        </section>
     </div>
 </template>
 
@@ -37,25 +16,40 @@ import { mapGetters } from 'vuex'
 import AboutUs from '@/components/common/AboutUs'
 import TeamMembers from '@/components/common/TeamMembers'
 export default {
-  head() {
-    return {
-      title: 'About Us'
-    }
-  },
+    head() {
+        return {
+            title: 'About Us',
+            meta: [
+                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                { hid: 'keywords', name: 'keywords', content: this.settings.seo_keywords || '' },
+                { hid: 'description', name: 'description', content: this.settings.seo_description },
+                { hid: "twittertitle", name: "twitter:title", content: this.settings.seo_title },
+                { hid: "twitterdesc", name: "twitter:description", content: this.settings.seo_description || '' },
+                { hid: "twitterhashtags", name: "twitter:hashtags", content: this.seo_keywords },
+                { hid: 'ogtype', property: 'og:type', content: "article" },
+                { hid: 'ogtitle', property: 'og:title', content: this.settings.seo_title },
+                { hid: 'ogdescription', property: 'og:description', content: this.settings.seo_description },
+                { hid: 'ogurl', property: 'og:url', content: this.$options.filters.getFullUrl(this.$route.fullPath) }
+            ]
+        }
+    },
   
-  components: {
-    AboutUs,
-    TeamMembers
-  },
+    components: {
+        AboutUs,
+        TeamMembers
+    },
 
-  data() {
-    return {
-      
-    }
-  },
+    data() {
+        return {
+        
+        }
+    },
 
     computed: {
-        ...mapGetters({})
+        ...mapGetters([
+            'about',
+            'settings'
+        ])
     }
 };
 </script>
