@@ -763,6 +763,51 @@ button.close {
     margin-right: 5px;
 }
 
+.hero-p-banner-title-bg {
+    background-color: #000;
+    background-size: contain;
+    background-position: 87% 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 35px;
+    padding: 129px 0 52px 35px;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: -283px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, .1);
+        -webkit-transform: skewY(11.9deg);
+        transform: skewY(11.9deg);
+    }
+}
+
+.hero-p-banner-info-wrap {
+    position: relative;
+    z-index: 99;
+}
+
+.hero-p-banner-title {
+    text-align: left;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 42px;
+    color: #fff;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 124%;
+        left: 0;
+        width: 100px;
+        height: 4px;
+        background: $primary-color;
+    }
+}
+
 .title-design-wrap {
     overflow: hidden;
     text-align: center;
@@ -998,7 +1043,21 @@ button.close {
 }
 
 .about-us {
-    background-image: url(/slides/slide5.jpg);
+    background-image: url(/banner.jpg);
+    position: relative;
+    z-index: 2;
+    background-position: center center;
+    background-size: cover;
+    &:after {
+        background-color: rgba(21, 4, 48, .8);
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+    }
 }
 
 .about--content {
@@ -1284,6 +1343,138 @@ button.close {
             }
         }
     }
+}
+
+.filter-orderby-section {
+    display: inline-block;
+    position: relative;
+    margin-right: 35px;
+    @media (max-width: $ml), (max-width: $sm) {
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+.filter-orderby-section-filters {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 12px;
+    right: 0;
+    background: #fff;
+    text-align: center;
+    padding: 20px 0 0 30px;
+    width: 280px;
+    border-top: 1px solid #e8e8e8;
+    border-radius: 0 0 23px 23px;
+    box-shadow: 0 8px 12px 0 rgba(79, 79, 79, .2);
+    z-index: 110;
+    @media (max-width: 1440px) {
+        left: 5px;
+    }
+}
+
+.filter-orderby-section-filters.active-filter {
+    display: block;
+}
+
+.filter-orderby-section-filters.filter-three-column {
+    width: 780px;
+    border-radius: 0 23px 23px;
+    @media (max-width: $ml), (max-width: $sm) {
+        width: min-content;
+    }
+}
+
+.active-filter {
+    color: $primary-color;
+}
+
+.filter-list-divider {
+    // padding: 20px 10px 18px 0;
+    width: 250px;
+    position: relative;
+    float: left;
+}
+
+.orderby-filter {
+    display: block;
+    margin-bottom: 13px;
+    font-size: 14px;
+    color: #000 !important;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .15s;
+    max-width: 100%;
+    word-wrap: break-word;
+    &:hover {
+        color: $primary-color !important;
+    }
+}
+
+.orderby-filter-button {
+    position: relative;
+    display: inline-block;
+    padding: 13px 50px 13px 30px;
+    width: 280px;
+    box-shadow: 0 8px 12px 0 rgba(79, 79, 79, .2);
+    border-radius: 23px;
+    background: #fff;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    transition: .1s linear all .4s;
+    &:before {
+        content: "\f0d7";
+        font-style: normal;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        right: 30px;
+        font-family: 'Font Awesome\ 5 Free';
+        font-size: 12px;
+        color: #000;
+    }
+    &:after {
+        content: "\f0d8";
+        font-style: normal;
+        position: absolute;
+        top: 40%;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        right: 30px;
+        font-family: 'Font Awesome\ 5 Free';
+        font-size: 12px;
+        color: #000;
+    }
+}
+
+.orderby-filter-button {
+    position: relative;
+    display: inline-block;
+    padding: 13px 50px 13px 30px;
+    width: 280px;
+    box-shadow: 0 8px 12px 0 rgba(79, 79, 79, .2);
+    border-radius: 23px;
+    background: #fff;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    transition: .1s linear all .4s;
+}
+
+.orderby-filter-button.active {
+    padding-bottom: 16px;
+}
+
+.orderby-filter-button.active {
+    border-radius: 23px 23px 0 0;
+    transition: 0s all 0s;
 }
 
 // @import './index.scss';

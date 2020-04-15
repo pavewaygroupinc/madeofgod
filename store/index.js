@@ -19,7 +19,8 @@ export const state = () => ({
     categories: [],
     searchItems: [],
     isClicked: false,
-    commentPolicy: null
+    commentPolicy: null,
+    isOrderByFilter: false,
 });
 
 export const getters = {
@@ -38,6 +39,7 @@ export const getters = {
     categories: state => state.categories,
     searchItems: state => state.searchItems,
     commentPolicy: state => state.commentPolicy,
+    isOrderByFilter: state => state.isOrderByFilter,
 
     latestProfiles: state => _.orderBy(state.profiles, 'position', 'asc').slice(0, 10),
 
@@ -89,6 +91,9 @@ export const mutations = {
     },
     SET_SUBMIT(state, data) {
         state.submit = data
+    },
+    SET_IsOrderByFilter(state, data) {
+        state.isOrderByFilter = data
     },
     SET_COMMENT_POLICY(state, data) {
         state.commentPolicy = data
@@ -227,9 +232,9 @@ export const actions = {
             slug: key.replace('.json', '').replace('./', '')
         }))
 
-        let blogs = searchitems.filter(item => item.category == Vue.options.filters.getCategoryIdBySlug(category))
+        let blogs = searchitems.filter(item => item.category == category)
 
-        commit('SET_RELATED_POSTS', _.orderBy(blogs, 'position', 'asc'))
+        commit('SET_POSTS', _.orderBy(blogs, 'position', 'asc'))
     },
 
     async getProfiles({ commit }) {
@@ -244,7 +249,7 @@ export const actions = {
         commit('SET_PROFILES', _.orderBy(searchprofiles, 'position', 'asc'))
     },
 
-    async getProfilesByCategory({ commit }, category) {
+    async getProfilesByGenre({ commit }, genre) {
         const context = await require.context('~/content/profiles/posts/', false, /\.json$/)
 
         const searchprofiles = await context.keys().map(key => ({
@@ -253,9 +258,9 @@ export const actions = {
             slug: key.replace('.json', '').replace('./', '')
         }))
 
-        let profiles = searchprofiles.filter(profile => profile.category == Vue.options.filters.getCategoryIdBySlug(category))
+        let profiles = searchprofiles.filter(profile => profile.genre == genre)
 
-        commit('SET_RELATED_PROFILES', _.orderBy(profiles, 'position', 'asc'))
+        commit('SET_PROFILES', _.orderBy(profiles, 'position', 'asc'))
     },
 
     async getFeaturedPosts({ commit }) {

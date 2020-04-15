@@ -1,5 +1,5 @@
 <template>
-    <section class="about-us section-padding-100 bg-img bg-overlay">
+    <section class="about-us section-padding-100 bg-img">
       <div class="section-heading">
         <h1 class="">
           About Us
@@ -16,9 +16,6 @@
               welcome on board.
             </h2>
             <div v-html="$md.render(about.body)" />
-            <!-- <blockquote class="white--text font-italic font-weight-black subtitle pl-1" style="border-left: #fff solid 5px;">
-              Your number one online portal for Christian Infotainment..
-            </blockquote> -->
           </v-flex>
         </v-layout>
       </v-container>

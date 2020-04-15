@@ -67,6 +67,9 @@ import { mapGetters } from 'vuex'
 import BlogPost from '@/components/BlogPost'
 import Loading from '@/components/common/Loading'
 export default {
+    async asyncData({ params, app, payload, route, store }) {
+        store.dispatch('getPosts')
+    },
     head() {
         return {
             title: 'Blogs'

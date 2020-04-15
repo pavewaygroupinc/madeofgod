@@ -110,7 +110,7 @@ export function getLatestSongs() {
         display: true
     }))
 
-    return _.orderBy(songs, 'date', "asc").slice(0, 3)
+    return _.orderBy(songs, 'date', "asc").slice(0, 5)
 }
 
 export function getSongs(number = 5) {
@@ -125,7 +125,7 @@ export function getSongs(number = 5) {
         display: true
     }))
 
-    return _.orderBy(songs, 'position', "asc").slice(0, number)
+    return _.orderBy(songs, 'position', "asc")
 }
 
 export function getProfileById(id) {

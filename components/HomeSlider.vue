@@ -12,13 +12,13 @@
                 </v-layout>
             </div>
         </agile>
-        <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
+        <!-- <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
             <div class="slide slide--thumbniail" v-for="(slide, index) in slides" :key="index" :class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)">
                 <img :src="slide.thumbnail"/>
             </div>
             <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
             <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
-        </agile>
+        </agile> -->
     </div>
 </template>
 
@@ -66,8 +66,8 @@ export default {
         ])
     },
 	mounted () {
-		this.asNavFor1.push(this.$refs.thumbnails)
-		this.asNavFor2.push(this.$refs.main)
+		// this.asNavFor1.push(this.$refs.thumbnails)
+		// this.asNavFor2.push(this.$refs.main)
 	}
     
 }
@@ -75,7 +75,7 @@ export default {
 
 <style lang="css" scoped>
 .main {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .thumbnails {
@@ -136,7 +136,7 @@ export default {
   color: #fff;
   display: -webkit-box;
   display: flex;
-  height: 650px;
+  height: 700px;
   -webkit-box-pack: center;
           justify-content: center;
 }

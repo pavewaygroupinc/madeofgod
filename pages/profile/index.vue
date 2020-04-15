@@ -70,6 +70,9 @@ import { mapGetters } from 'vuex'
 import Loading from '@/components/common/Loading'
 import ProfileCard from '@/components/ProfileCard'
 export default {
+    async asyncData({ params, app, payload, route, store }) {
+        store.dispatch('getProfiles')
+    },
     head() {
         return {
         title: 'Artist Profiles'
