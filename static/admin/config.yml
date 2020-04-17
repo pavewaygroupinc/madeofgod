@@ -212,7 +212,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
-      - {label: Summary 164-220, name: summary, widget: text, required: false, pattern: ['.{164,220}', "Must be within 164 and 220 characters"]}
+      - {label: Summary 164-200, name: summary, widget: text, required: true, pattern: ['.{164,220}', "Must be within 164 and 220 characters"]}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
       - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: ["title"], valueField: "id", displayFields: ["title"], required: true}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -236,7 +236,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
-      - {label: Summary 164-220, name: summary, widget: text, required: true, pattern: ['.{164,220}', "Must be within 164 and 220 characters"]}
+      - {label: Summary 164-200, name: summary, widget: text, required: true, pattern: ['.{164,220}', "Must be within 164 and 220 characters"]}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false, allow_multiple: true}
       - label: "Gallery"
         name: "galleryImages"

@@ -4,7 +4,7 @@
     <v-content>
       <nuxt />
     </v-content>
-    <section class="page-banner section-padding-100 bg-img bg-overlay2 mt-12" v-if="!isEmbedded">
+    <section class="page-banner section-padding-100 bg-img bg-overlay2 mt-12" v-bind:style="{ backgroundImage: 'url(' + settings.profile_banner + ')' }" v-if="!isEmbedded">
       <v-container grid-list-lg>
                 <v-layout row wrap>
                     <v-flex md9 xs12>
@@ -42,7 +42,9 @@ export default {
   watch: {},
 
   computed: {
-    ...mapGetters({}),
+    ...mapGetters([
+      'settings'
+    ]),
 
     isEmbedded() {
       return this.$route.query.hasOwnProperty('content_embed') ? true : false

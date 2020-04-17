@@ -30,7 +30,9 @@ export default {
 			asNavFor2: [],
 			options1: {
 				dots: false,
-				fade: true,
+        fade: true,
+        autoplay: true,
+				centerMode: true,
 				navButtons: false
 			},
 			

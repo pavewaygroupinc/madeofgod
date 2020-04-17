@@ -6,7 +6,7 @@
         <v-container grid-list-xl>
             <v-layout row wrap>
                 <v-flex md4>
-                    <img class="footer-logo" :src="settings.mobile_logo" :alt="settings.site_title" />
+                    <img :data-src="settings.mobile_logo" class="footer-logo lazyload" :alt="settings.site_title" />
                     <p>
                         Made of God media/Tv is a platform created to catapult talents in the gospel sector to great heights.
                     </p>

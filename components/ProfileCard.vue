@@ -4,7 +4,7 @@
     flat
   >
     <nuxt-link :to="profile._path">
-        <v-img eager lazy-src"/favicon.png" class="profile-img" :src="profile.thumbnail" :alt="profile.name" />
+      <img class="profile-img lazyload" :data-src="profile.thumbnail" :alt="profile.name" />
     </nuxt-link>
 
     <div class="share-count">
@@ -96,6 +96,8 @@ export default {
     -ms-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+    object-fit: cover;
+    width: 100%;
     &:hover {
       transform: scale(1.04);
       -webkit-transition: all 2s ease-in-out;

@@ -6,8 +6,7 @@
                     <v-container class="featured-album-content">
                         <v-layout row wrap>
                             <v-flex md6>
-                                <v-img src="/madeofgod.jpg" class="h-100" />
-                                <!-- <div class="album-thumbnail h-100 bg-img" style="background-image: url(madeofgod.jpg);"></div> -->
+                                <img :data-src="about.thumbnail" class=" lazyload" />
                             </v-flex>
                             <v-flex sm6>
                                 <div class="album-songs h-100">
@@ -78,7 +77,9 @@ export default {
 		},
 
 	    computed: {
-	    	...mapGetters({}),
+	    	...mapGetters([
+				'about'
+			]),
 	      currentTrack () {
 	        return this.playlist[this.index]
 	      },
@@ -239,7 +240,12 @@ export default {
     // z-index: 2;
     background-color: #27203f;
     // width: 100%;
-    // height: 570px;
+	// height: 570px;
+	
+	img {
+		object-fit: cover;
+		width: 100%;
+	}
 
     .playlist-title {
         font-weight: 500;

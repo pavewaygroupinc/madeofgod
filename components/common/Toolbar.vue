@@ -9,7 +9,7 @@
       color="white"
       light
     >
-      <img src="/logo.png" :alt="settings.site_title" style="height: 12rem">
+      <img :data-src="settings.site_logo" class="lazyload" :alt="settings.site_title" style="height: 12rem">
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item to="/">
@@ -71,7 +71,7 @@
       height="85"
     >
       <nuxt-link to="/" class="toolbar-logo">
-        <img src="/logo_text.png" :alt="settings.site_title" />
+        <img :data-src="settings.site_logo" class="lazyload" :alt="settings.site_title" />
       </nuxt-link>
       <v-btn text to="/" class="hidden-sm-and-down white--text">Home</v-btn>
       <v-btn text to="/profile" class="hidden-sm-and-down white--text">Profiles</v-btn>

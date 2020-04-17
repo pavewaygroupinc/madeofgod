@@ -25,7 +25,7 @@
               class="mb-1"
               :class="[{selected: track === selectedTrack}, {even: index % 2 == 0}]">
               <v-list-item-avatar tile size="60">
-                <v-img eager lazy-src"/favicon.png" :src="track.thumbnail"></v-img>
+                <img class="lazyload" :data-src="track.thumbnail"></img>
               </v-list-item-avatar>
 
               <v-list-item-content class="pl-3" @click="selectTrack(track)" @dblclick="playTrack()" style="cursor: pointer;">

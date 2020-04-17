@@ -3,11 +3,9 @@
     <v-container grid-list-xs>
       <v-layout row wrap>
       <v-flex xs12 md2>
-        <v-img
-          :src="trackInfo.artwork"
-          height="125"
-          width="125"
-          cover
+        <img
+          :data-src="trackInfo.artwork"
+          class="lazyload"
         />
       </v-flex>
       <v-flex xs12 md10>

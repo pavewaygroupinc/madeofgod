@@ -1,48 +1,8 @@
 <template>
     <div>
         <div v-if="!isEmbedded">
-            <!-- <v-container :fluid="$vuetify.breakpoint.smAndDown" class="post-section-banner main-content">
-                <div class="breadcrumbs-wrap hidden-sm-and-down">
-                    <ul class="breadcrumbs">
-                        <li>
-                            <nuxt-link to="/">Home</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/profile">Profile</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link :to="`/genre/${$options.filters.getGenreById(genre).slug}`">{{$options.filters.getGenreById(genre).title}}</nuxt-link>
-                        </li>
-                    </ul>
-                </div>
-                
-                <v-lazy>
-                    <div class="section-items-banner-bg" v-bind:style="{ backgroundImage: 'url(' + thumbnail + ')' }">
-                        <div class="section-items-banner-bg-text">
-                            <div class="update-date text-uppercase font-weight-black subtitle-1">
-                                Last updated: <span>{{ update | lastlyUpdated }}</span>
-                            </div>
-                            <h1 class="banner-bg-title">{{title}}</h1>
-                        </div>
-                    </div>
-                </v-lazy>
-            </v-container> -->
             <v-container :fluid="$vuetify.breakpoint.smAndDown" grid-list-xs class="post-section-banner">
                 <v-layout ma-0 row wrap>
-                    <!-- <v-flex md8 class="hidden-sm-and-down breadcrumbs-wrap">
-                        <ul class="breadcrumbs">
-                            <li>
-                                <nuxt-link to="/">Home</nuxt-link>
-                            </li>
-                            <li>
-                                <nuxt-link to="/profile">Profiles</nuxt-link>
-                            </li>
-                            <li>
-                                <nuxt-link :to="`/profile/${$route.params.slug}`">{{name}}</nuxt-link>
-                            </li>
-                        </ul>
-                    </v-flex>
-                    <v-flex md4 class="hidden-sm-and-down"/> -->
                     <v-flex md8 sm12 xs12>
                         <!-- <profile-slider :images="gallery" :thumbnail="thumbnail" /> -->
                         <div class="breadcrumbs-wrap hidden-sm-and-down">
@@ -66,7 +26,7 @@
                             <v-layout row wrap class="mb-8">
                                 <v-flex md1 sm2 xs2 class="author-img">
                                     <v-avatar size="50">
-                                        <img :src="author.thumbnail" :alt="author.name" />
+                                        <img :data-src="author.thumbnail" class="lazyload" :alt="author.name" />
                                     </v-avatar>
                                 </v-flex>
                                 <v-flex md3 sm3 xs10 class="text-left pl-md-2 mt-0 author-info">

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="page-breadcumb bg-overlay2 bg-img" v-bind:style="{ backgroundImage: 'url(' + settings.about_banner + ')' }">
+        <section class="page-breadcumb bg-overlay2 bg-img mb-2" v-bind:style="{ backgroundImage: 'url(' + settings.about_banner + ')' }">
             <div class="bradcumbContent">
                 <h2>About Us</h2>
             </div>
@@ -44,6 +44,8 @@ export default {
         
         }
     },
+
+    layout: 'contact',
 
     computed: {
         ...mapGetters([

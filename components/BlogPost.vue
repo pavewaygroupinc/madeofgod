@@ -2,7 +2,7 @@
     <div class="single-post--content my-4">
         <v-card flat>
             <nuxt-link :to="post._path">
-                <v-img eager lazy-src"/favicon.png" class="post-img" :src="post.thumbnail" :alt="post.title" />
+                <img class="post-img lazyload" :data-src="post.thumbnail" :alt="post.title" />
             </nuxt-link>
 
             <div class="share-count">
@@ -46,7 +46,7 @@
             </v-card-actions>
             <div class="bg-gradients mb-30 w-25"></div>
             <v-card-text class="post-content">
-                <p v-text="post.seo_description" />
+                <p v-text="post.summary" />
             </v-card-text>
             <nuxt-link :to="post._path" class="read-more-btn">
                 Read more
@@ -74,6 +74,8 @@ export default {
         -ms-transition: all .5s ease;
         -o-transition: all .5s ease;
         transition: all .5s ease;
+        object-fit: cover;
+        width: 100%;
         &:hover {
             transform: scale(1.04);
             -webkit-transition: all 2s ease-in-out;
@@ -84,7 +86,7 @@ export default {
         }
     }
         .post-title {
-            font-size: 30px;
+            font-size: 20px;
             display: block;
             margin-bottom: 0;
             font-weight: 900;

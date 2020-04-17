@@ -5,7 +5,7 @@
     width="400"
   >
     <nuxt-link :to="profile._path">
-        <img :data-src="slide.thumbnail" class="profile-img lazyload" :alt="profile.name" />
+        <img :data-src="profile.thumbnail" class="profile-img lazyload" :alt="profile.name" />
     </nuxt-link>
 
     <div class="share-count">

@@ -8,7 +8,7 @@
       <v-container grid-list-xl mt-12 class="about--content">
         <v-layout row wrap>
           <v-flex sm12 md6>
-            <v-img :src="about.thumbnail" :alt="about.title" />
+            <v-img eager lazy-src="https://picsum.photos/id/180/100/60?blur" :src="about.thumbnail" :alt="about.title" />
           </v-flex>
           <v-flex sm12 md6>
             <h2>
@@ -38,6 +38,8 @@ export default {
 <style lang="scss">
 @import "~/assets/breakpoints.scss";
 .about-us {
+
+  z-index: 0;
 
   .about--content {
     h2 {

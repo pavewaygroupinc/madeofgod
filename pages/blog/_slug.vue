@@ -35,7 +35,7 @@
                                 <v-layout row wrap class="author-section">
                                     <v-flex lg1 md2 xs2 class="author-img">
                                         <v-avatar size="50">
-                                            <img :src="author.thumbnail" :alt="author.name" />
+                                            <img :data-src="author.thumbnail" class="lazyload" :alt="author.name" />
                                         </v-avatar>
                                     </v-flex>
                                     <v-flex lg11 md10 xs10 class="pt-5 author-info">
