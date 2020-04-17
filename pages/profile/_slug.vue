@@ -20,9 +20,9 @@
                         </div>
                         
                         <v-lazy>
-                            <div class="section-items-banner-bg bg-overlay" style="height: 600px; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + thumbnail + ')' }" />
+                            <div class="section-items-banner-bg bg-overlay" v-bind:style="{ backgroundImage: 'url(' + thumbnail + ')' }" />
                         </v-lazy>
-                        <section class="profile-author-section mt-md-3">
+                        <section class="profile-author-section mt-3">
                             <v-layout row wrap class="mb-8">
                                 <v-flex md1 sm2 xs2 class="author-img">
                                     <v-avatar size="50">
@@ -275,6 +275,18 @@ export default {
 <style scoped lang="scss">
 @import "~/assets/breakpoints.scss";
 @import "~/assets/variables.scss";
+.section-items-banner-bg {
+    height: 600px;
+    background-size: contain;
+     @media (max-width: $sm) {
+         height: 400px;
+         background-size: cover;
+         &:after {
+            background: none;
+            content: none;
+         }
+     }
+}
 .profile-author-section {
     @media (max-width: $ml), (max-width: $sm) {
         padding: 0 14px;

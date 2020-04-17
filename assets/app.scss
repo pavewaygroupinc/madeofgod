@@ -55,6 +55,10 @@ img {
         background: -webkit-linear-gradient(to right, #FE0000, #0c0527);
         background: linear-gradient(to right, #FE0000, #0c0527);
         text-align: center;
+        @media (max-width: $sm) {
+            width: 100%;
+            left: 52.2%;
+        }
         h2 {
             font-size: 36px;
             color: #fff;
@@ -431,6 +435,9 @@ p {
 
 .post-section-banner {
     position: relative;
+    @media (max-width: $sm) {
+        padding: 0;
+    }
     .breadcrumbs-wrap {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -568,8 +575,8 @@ p {
             font-size: 42px;
             color: #fff;
             margin-top: 1em;
-            @media (max-width: $ml), (max-width: $sm) {
-                font-size: 39px;
+            @media (max-width: $sm) {
+                font-size: 30px;
             }
             @media (max-width: $ls) {}
         }

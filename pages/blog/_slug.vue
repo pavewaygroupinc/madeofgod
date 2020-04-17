@@ -17,13 +17,13 @@
                 </div>
                 
                 <v-lazy>
-                    <div class="section-items-banner-bg" v-bind:style="{ backgroundImage: 'url(' + thumbnail + ')' }">
-                        <div class="section-items-banner-bg-text">
+                    <div class="section-items-banner-bg bg-overlay2" v-bind:style="{ backgroundImage: 'url(' + thumbnail + ')' }">
+                        <v-layout justify-center align-center column fill-height class="section-items-banner-bg-text">
                             <div class="update-date text-uppercase font-weight-black subtitle-1">
                                 Last updated: <span>{{ update | lastlyUpdated }}</span>
                             </div>
                             <h1 class="banner-bg-title">{{title}}</h1>
-                        </div>
+                        </v-layout>
                     </div>
                 </v-lazy>
             </v-container>
