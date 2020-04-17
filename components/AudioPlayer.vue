@@ -6,7 +6,7 @@
                     <v-container class="featured-album-content">
                         <v-layout row wrap>
                             <v-flex md6>
-                                <img :data-src="about.thumbnail" class=" lazyload" />
+                                <img :data-src="about.thumbnail" :alt="settings.site_title" class=" lazyload" />
                             </v-flex>
                             <v-flex sm6>
                                 <div class="album-songs h-100">
@@ -78,7 +78,8 @@ export default {
 
 	    computed: {
 	    	...mapGetters([
-				'about'
+				'about',
+				'settings'
 			]),
 	      currentTrack () {
 	        return this.playlist[this.index]

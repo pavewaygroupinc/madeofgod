@@ -3,13 +3,13 @@
     class="single-profile--content my-4 elevation-10"
     flat
   >
-    <nuxt-link :to="profile._path">
+    <nuxt-link :to="profile._path" :aria-label="profile.name">
       <img class="profile-img lazyload" :data-src="profile.thumbnail" :alt="profile.name" />
     </nuxt-link>
 
     <div class="share-count">
       <span class="share-icon"> 
-        <v-btn rounded fab small color="primary">
+        <v-btn aria-label="Share" rounded fab small color="primary">
           <v-icon>share</v-icon> 
         </v-btn>
       </span>
@@ -32,13 +32,13 @@
     </div>
 
     <v-card-title>
-      <nuxt-link :to="profile._path">{{profile.name}}</nuxt-link>
+      <nuxt-link :to="profile._path" :aria-label="profile.name">{{profile.name}}</nuxt-link>
     </v-card-title>
 
     <v-card-text>
       <div>Genre</div>
       <div class="subtitle-1">
-        <nuxt-link :to="`/genre/${$options.filters.slugify($options.filters.getGenreById(profile.genre).title)}`">{{$options.filters.getGenreById(profile.genre).title}}</nuxt-link>
+        <nuxt-link :to="`/genre/${$options.filters.slugify($options.filters.getGenreById(profile.genre).title)}`" :aria-label="$options.filters.getGenreById(profile.genre).title">{{$options.filters.getGenreById(profile.genre).title}}</nuxt-link>
       </div>
 
       <div v-text="profile.summary"/>
@@ -59,7 +59,7 @@
     </v-card-actions>
 
     <v-card-actions class="mx-3">
-      <nuxt-link :to="profile._path">Read more</nuxt-link>
+      <nuxt-link :to="profile._path" aria-label="Read more">Read more</nuxt-link>
       <v-spacer/>
       <v-avatar size="36px">
         <img

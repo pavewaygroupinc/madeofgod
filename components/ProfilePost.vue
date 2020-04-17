@@ -5,7 +5,7 @@
                 <v-lazy>
                     <div v-bind:style="{ backgroundImage: 'url(' + profile.thumbnail + ')' }" class="profile-post-img">
                         <v-layout fill-height>
-                            <nuxt-link :to="profile._path" class="single-post-read-more-btn font-weight-bold">read more</nuxt-link>
+                            <nuxt-link :to="profile._path" class="single-post-read-more-btn font-weight-bold" aria-label="Read more">read more</nuxt-link>
                         </v-layout>
                     </div>
                 </v-lazy>
@@ -44,7 +44,7 @@
                     </h3>
                 </div>
                 
-                <nuxt-link class="profile-post-btn-details" :to="profile._path">
+                <nuxt-link class="profile-post-btn-details" :to="profile._path" aria-label="Read more">
                     <span class="text">read more</span>
                     <span class="icon">→</span>
                 </nuxt-link>

@@ -7,7 +7,7 @@
 
             <div class="share-count">
             <span class="share-icon"> 
-                <v-btn rounded fab small color="primary">
+                <v-btn aria-label="Share" rounded fab small color="primary">
                     <v-icon>share</v-icon> 
                 </v-btn>
             </span>
@@ -29,7 +29,7 @@
             </social-sharing>
             </div>
             <v-card-title>
-                <nuxt-link :to="post._path" class="post-title">
+                <nuxt-link :to="post._path" class="post-title" :aria-label="post.title">
                     {{post.title}}
                 </nuxt-link>
             </v-card-title>
@@ -39,7 +39,7 @@
                 </span>
                 <v-spacer />
                 <span class="post-comment--counter">
-                    <nuxt-link :to="`/category/${$options.filters.slugify($options.filters.getCategoryById(post.category).title)}`">
+                    <nuxt-link :to="`/category/${$options.filters.slugify($options.filters.getCategoryById(post.category).title)}`" :aria-label="$options.filters.getCategoryById(post.category).title">
                         {{$options.filters.getCategoryById(post.category).title}}
                     </nuxt-link>
                 </span>
@@ -48,7 +48,7 @@
             <v-card-text class="post-content">
                 <p v-text="post.summary" />
             </v-card-text>
-            <nuxt-link :to="post._path" class="read-more-btn">
+            <nuxt-link :to="post._path" class="read-more-btn" aria-label="Read more">
                 Read more
             </nuxt-link>
         </v-card>

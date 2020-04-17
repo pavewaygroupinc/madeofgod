@@ -6,6 +6,7 @@
         <img
           :data-src="trackInfo.artwork"
           class="lazyload"
+          :alt="trackInfo.title"
         />
       </v-flex>
       <v-flex xs12 md10>

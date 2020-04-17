@@ -80,7 +80,7 @@
       <v-btn text to="/about-us" class="hidden-sm-and-down white--text">About Us</v-btn>
       <v-btn text to="/about-us/contact" class="hidden-sm-and-down white--text">Contact</v-btn>
       <v-spacer />
-      <v-btn icon class="hidden-sm-and-down" v-for="(social, index) in settings.connect" :key="index" tag="a" target="_Blank" :href="social.url">
+      <v-btn aria-label="Social Button" icon class="hidden-sm-and-down" v-for="(social, index) in settings.connect" :key="index" tag="a" target="_Blank" :href="social.url">
         <v-icon color="white">{{social.icon}}</v-icon>
       </v-btn>
       <v-spacer class="hidden-md-and-up"/>

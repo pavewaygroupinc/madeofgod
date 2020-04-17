@@ -91,7 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer-logo {
-    width: 80px;
+    width: 100%;
 }
 .footer-link-container {
     .footer-link {
