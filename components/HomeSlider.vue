@@ -3,7 +3,7 @@
         <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
             <div class="slide" v-for="(slide, index) in slides" :key="index" :class="`slide--${index}`">
                 <img :data-src="slide.thumbnail" class="slide-img lazyload" :alt="slide.title" />
-                <v-layout class="hero-slides-content text-center column fill-height justify-center align-center">
+                <v-layout class="hero-slides-content text-center column fill-height justify-center align-center bg-overlay2">
                     <h2>{{slide.title}} <span>{{slide.title}}</span></h2>
                     <p>
                         <i>{{slide.subtitle}}</i>

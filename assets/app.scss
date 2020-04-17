@@ -21,10 +21,10 @@ a {
 .btn-discover {
     font-size: 1.3em !important;
     color: white !important;
-    transform: skewY(-7deg);
     &:hover,
     &:focus {
-        transform: skewX(-7deg);
+        transform: skewY(-7deg);
+        // transform: skewX(-7deg);
     }
 }
 
@@ -172,7 +172,7 @@ img {
     background-position: center center;
     background-size: cover;
     &:after {
-        background-color: rgba(21, 4, 48, .5);
+        background-color: rgba(17, 17, 17, .5);
         position: absolute;
         z-index: -1;
         top: 0;
