@@ -7,7 +7,7 @@ backend:
 publish_mode: editorial_workflow
 media_library:
   name: cloudinary
-  output_filename_only: true
+  # output_filename_only: true
   config:
     cloud_name: dyt6izhug
     api_key: 168239225326976
