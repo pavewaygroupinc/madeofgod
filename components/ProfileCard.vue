@@ -62,7 +62,7 @@
       <nuxt-link :to="profile._path" aria-label="Read more">Read more</nuxt-link>
       <v-spacer/>
       <v-avatar size="36px">
-        <img
+        <img style="width: 100% object-fit: contain;"
           :src="$options.filters.getAuthorById(profile.author).thumbnail"
           :alt="$options.filters.getAuthorById(profile.author).name"
         >
