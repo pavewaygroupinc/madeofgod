@@ -104,6 +104,8 @@ export default {
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
+        '@nuxtjs/workbox',
+        '@nuxtjs/manifest',
         // Doc: https://github.com/nuxt-community/dotenv-module
         '@nuxtjs/dotenv',
         '@nuxtjs/markdownit',
@@ -182,11 +184,17 @@ export default {
         name: siteInfo.site_title,
         short_name: siteInfo.site_title,
         description: siteInfo.site_description,
-        lang: 'en'
+        lang: 'en',
+        start_url: siteInfo.site_url
+    },
+    meta: {
+        /* meta options */
+        theme_color: siteInfo.site_primary_color,
+        author: "PaveWay Technologies"
     },
     workbox: {
         runtimeCaching: [{
-            urlPattern: '/images/uploads/.*',
+            urlPattern: '/static/.*',
             handler: 'cacheFirst',
             strategyOptions: {
                 cacheName: 'image-cache',
@@ -195,7 +203,9 @@ export default {
                     maxAgeSeconds: 86400
                 }
             }
-        }]
+        }],
+        autoRegister: true,
+        offline: true
     },
 
     /*
