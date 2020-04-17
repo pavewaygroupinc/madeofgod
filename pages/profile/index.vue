@@ -18,7 +18,7 @@
                                         No profiles found.
                                     </v-alert>
                                     <masonry v-else
-                                        :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
+                                        :cols="{default: 3, 1000: 3, 700: 1, 400: 1}"
                                         :gutter="{default: '30px', 700: '15px'}"
                                     >
                                         <profile-card :profile="profile" v-for="(profile, index) in profiles" :key="index"/>

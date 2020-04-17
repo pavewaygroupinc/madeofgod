@@ -13,7 +13,7 @@
       </div>
       <v-container fluid grid-list-xl>
         <masonry
-          :cols="{default: 4, 1000: 4, 700: 2, 400: 1}"
+          :cols="{default: 4, 1000: 4, 700: 1, 400: 1}"
           :gutter="{default: '30px', 700: '15px'}"
         >
             <blog-post :post="post" v-for="(post, index) in latestPosts" :key="index" />
@@ -28,7 +28,7 @@
           </h1>
         </div>
         <masonry
-            :cols="{default: 4, 1000: 4, 700: 2, 400: 1}"
+            :cols="{default: 4, 1000: 4, 700: 1, 400: 1}"
             :gutter="{default: '30px', 700: '15px'}"
         >
             <profile-card :profile="profile" v-for="(profile, index) in latestProfiles" :key="index"/>
