@@ -2,7 +2,7 @@
     <div class="single-post--content my-4">
         <v-card flat>
             <nuxt-link :to="post._path">
-                <v-img class="post-img" :src="post.thumbnail" :alt="post.title" />
+                <v-img eager lazy-src"/favicon.png" class="post-img" :src="post.thumbnail" :alt="post.title" />
             </nuxt-link>
 
             <div class="share-count">

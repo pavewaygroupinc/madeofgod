@@ -32,6 +32,7 @@
     },
     "devDependencies": {
         "@nuxtjs/vuetify": "^1.11.0",
+        "css-aspect-ratio": "^1.0.5",
         "front-matter-markdown": "^0.4.4",
         "frontmatter-markdown-loader": "^3.1.0",
         "gulp": "^4.0.2",

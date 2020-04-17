@@ -1,12 +1,11 @@
 <template>
   <v-card
-    :loading="loading"
     class="single-profile--content my-4 elevation-10"
     flat
     width="400"
   >
     <nuxt-link :to="profile._path">
-        <img class="profile-img" :src="profile.thumbnail" :alt="profile.name" />
+        <img :data-src="slide.thumbnail" class="profile-img lazyload" :alt="profile.name" />
     </nuxt-link>
 
     <div class="share-count">

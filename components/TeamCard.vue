@@ -3,7 +3,7 @@
     class="single-team--content my-4 elevation-10"
     flat
   >    
-    <v-img class="team-img" :src="team.thumbnail" :alt="team.name" />
+    <v-img eager lazy-src"/favicon.png" class="team-img" :src="team.thumbnail" :alt="team.name" />
     <v-card-title>
       {{team.name}}
     </v-card-title>
@@ -62,6 +62,7 @@ export default {
     -ms-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+    --aspect-ratio-w: 4;
     &:hover {
       transform: scale(1.04);
       -webkit-transition: all 2s ease-in-out;

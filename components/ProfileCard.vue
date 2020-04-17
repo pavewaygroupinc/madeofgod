@@ -1,11 +1,10 @@
 <template>
   <v-card
-    :loading="loading"
     class="single-profile--content my-4 elevation-10"
     flat
   >
     <nuxt-link :to="profile._path">
-        <v-img class="profile-img" :src="profile.thumbnail" :alt="profile.name" />
+        <v-img eager lazy-src"/favicon.png" class="profile-img" :src="profile.thumbnail" :alt="profile.name" />
     </nuxt-link>
 
     <div class="share-count">
@@ -73,26 +72,20 @@
 </template>
 
 <script>
-  export default {
+export default {
     props: {
         profile: {
             type: Object,
             required: true
         }
     },
-    data: () => ({
-      loading: false,
-      selection: 1,
-    }),
 
-    methods: {
-      reserve () {
-        this.loading = true
-
-        setTimeout(() => (this.loading = false), 2000)
-      },
+    data () {
+      return {}
     },
-  }
+
+    methods: {},
+}
 </script>
 
 <style lang="scss" scoped>

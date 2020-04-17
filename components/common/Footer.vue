@@ -6,7 +6,7 @@
         <v-container grid-list-xl>
             <v-layout row wrap>
                 <v-flex md4>
-                    <img class="footer-logo" src="/logo.png" />
+                    <img class="footer-logo" :src="settings.mobile_logo" :alt="settings.site_title" />
                     <p>
                         Made of God media/Tv is a platform created to catapult talents in the gospel sector to great heights.
                     </p>
@@ -65,7 +65,7 @@
                     >
 
                             <v-card-actions class="grey darken-3 justify-center">
-                                <span class="mr-3 white--text">Powered by: <a href="https://pavewaytechnologies.com" class="" style="text-decoration: none; color: #00C853 !important;" target="_blank">PaveWay Technologies</a></span>
+                                <span class="mr-3 white--text">Powered by: <a href="https://pavewaytechnologies.com" class="" style="text-decoration: none; color: #00C853 !important;" target="_blank" rel="noopener">PaveWay Technologies</a></span>
                             </v-card-actions>
                     </v-card>
                 </v-flex>

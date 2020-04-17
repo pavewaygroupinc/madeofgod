@@ -25,7 +25,7 @@
               class="mb-1"
               :class="[{selected: track === selectedTrack}, {even: index % 2 == 0}]">
               <v-list-item-avatar tile size="60">
-                <v-img :src="track.thumbnail"></v-img>
+                <v-img eager lazy-src"/favicon.png" :src="track.thumbnail"></v-img>
               </v-list-item-avatar>
 
               <v-list-item-content class="pl-3" @click="selectTrack(track)" @dblclick="playTrack()" style="cursor: pointer;">
@@ -34,7 +34,7 @@
               </v-list-item-content>
               <v-list-item-action>
                 <v-icon dark v-if="track == selectedTrack">bar_chart</v-icon>
-                <v-btn color="white" icon tag="a" :href="track.src" download target="_blank">
+                <v-btn color="white" icon tag="a" :href="track.src" download target="_blank" rel="noopener">
                   <v-icon>get_app</v-icon>
                 </v-btn>
               </v-list-item-action>
