@@ -13,9 +13,9 @@
                         <p v-text="promotion.description"/>
                     </v-flex>
                     <v-flex md3 xs12>
-                        <nuxt-link color="primary" class="contact-us-btn btn" :href="promotion.button_link" target="_Blank" tag="a">
+                        <a color="primary" class="contact-us-btn btn" :href="promotion.button_link" target="_Blank">
                             {{promotion.button_text}}
-                        </nuxt-link>
+                        </a>
                     </v-flex>
                 </v-layout>
       </v-container>
