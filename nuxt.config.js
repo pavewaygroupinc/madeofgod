@@ -102,18 +102,23 @@ export default {
      */
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
-        '@nuxtjs/axios',
+        // '@nuxtjs/axios',
+        '@nuxtjs/google-analytics',
         '@nuxtjs/pwa',
         '@nuxtjs/workbox',
         '@nuxtjs/manifest',
         // Doc: https://github.com/nuxt-community/dotenv-module
-        '@nuxtjs/dotenv',
+        // '@nuxtjs/dotenv',
         '@nuxtjs/markdownit',
         '@nuxtjs/vuetify',
         // "nuxt-compress",
         // 'nuxt-purgecss'
         // 'nuxt-responsive-loader'
     ],
+
+    googleAnalytics: {
+        id: 'UA-122657189-1'
+    },
 
     "nuxt-compress": {
         gzip: {
@@ -135,7 +140,7 @@ export default {
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
-    axios: {},
+    // axios: {},
 
     webfontloader: {
         custom: {

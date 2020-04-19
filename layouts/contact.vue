@@ -4,23 +4,17 @@
     <v-content>
       <nuxt />
     </v-content>
-    <section class="page-banner section-padding-100 bg-img bg-overlay2 mt-12" v-bind:style="{ backgroundImage: 'url(' + settings.profile_banner + ')' }" v-if="!isEmbedded">
+    <section class="page-banner section-padding-100 bg-img bg-overlay2 mt-12" v-bind:style="{ backgroundImage: 'url(' + promotion.thumbnail + ')' }" v-if="!isEmbedded">
       <v-container grid-list-lg>
                 <v-layout row wrap>
                     <v-flex md9 xs12>
-                        <h3>
-                            Contact us now
-                        </h3>
-                        <h1>
-                            Do you have a question?
-                        </h1>
-                        <p>
-                            Morbi quis venenatis augue, a tincidunt libero. Sed id porttitor elit, eu ultricies mauris.
-                        </p>
+                        <h3 v-text="promotion.title"/>
+                        <h1 v-text="promotion.subtitle"/>
+                        <p v-text="promotion.description"/>
                     </v-flex>
                     <v-flex md3 xs12>
-                        <nuxt-link color="primary" class="contact-us-btn btn" to="/about-us/contact">
-                            Contact us
+                        <nuxt-link color="primary" class="contact-us-btn btn" :href="promotion.button_link" target="_Blank" tag="a">
+                            {{promotion.button_text}}
                         </nuxt-link>
                     </v-flex>
                 </v-layout>
@@ -43,7 +37,8 @@ export default {
 
   computed: {
     ...mapGetters([
-      'settings'
+      'settings',
+      'promotion'
     ]),
 
     isEmbedded() {

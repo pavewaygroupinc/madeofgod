@@ -16,6 +16,7 @@ export const state = () => ({
     settings: null,
     overlay: false,
     categories: [],
+    promotion: null,
     searchItems: [],
     isClicked: false,
     commentPolicy: null,
@@ -34,6 +35,7 @@ export const getters = {
     authors: state => state.authors,
     profiles: state => state.profiles,
     settings: state => state.settings,
+    promotion: state => state.promotion,
     categories: state => state.categories,
     searchItems: state => state.searchItems,
     commentPolicy: state => state.commentPolicy,
@@ -85,6 +87,9 @@ export const mutations = {
     SET_SUBMIT(state, data) {
         state.submit = data
     },
+    SET_PROMOTION(state, data) {
+        state.promotion = data
+    },
     SET_IsOrderByFilter(state, data) {
         state.isOrderByFilter = data
     },
@@ -113,6 +118,7 @@ export const mutations = {
 
 export const actions = {
     async nuxtServerInit({ dispatch }) {
+        await dispatch('getPromotion')
         await dispatch('getAbout')
         await dispatch('getContact')
         await dispatch('getPrivacy')
@@ -130,6 +136,11 @@ export const actions = {
     getSettings({ commit }) {
         const settings = require('~/content/_data/settings.json');
         commit('SET_SETTINGS', settings)
+    },
+
+    getPromotion({ commit }) {
+        const promotion = require('~/content/_data/promotion.json');
+        commit('SET_PROMOTION', promotion)
     },
 
     getAbout({ commit }) {
