@@ -188,7 +188,7 @@ collections:
     folder: "content/genres/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    preview_path: genres/{{slug}}
+    preview_path: genre/{{slug}}
     format: 'json'
     fields:
       - {label: "Title", name: "title", widget: "string"}
@@ -206,7 +206,7 @@ collections:
     folder: "content/blog/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    preview_path: blogs/{{fields.slug}}
+    preview_path: blog/{{fields.slug}}
     format: 'json'
     sort: "date:desc" # Default is title:asc
     fields: # The fields for each document, usually in front matter
@@ -230,7 +230,7 @@ collections:
     folder: "content/profiles/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    preview_path: profiles/{{fields.slug}}
+    preview_path: profile/{{fields.slug}}
     format: 'json'
     sort: "date:desc" # Default is title:asc
     fields: # The fields for each document, usually in front matter
@@ -266,7 +266,7 @@ collections:
     folder: "content/songs/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{fields.slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    preview_path: profiles/{{fields.slug}}
+    # preview_path: profiles/{{fields.slug}}
     format: 'json'
     fields:
       - {label: "Title", name: "title", widget: "string"}
