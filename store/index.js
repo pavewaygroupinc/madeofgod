@@ -4,7 +4,6 @@ import _ from 'lodash'
 Vue.use(Vuex)
 
 export const state = () => ({
-    songs: [],
     posts: [],
     genres: [],
     slides: [],
@@ -24,7 +23,6 @@ export const state = () => ({
 });
 
 export const getters = {
-    songs: state => state.songs,
     about: state => state.about,
     posts: state => state.posts,
     genres: state => state.genres,
@@ -41,11 +39,9 @@ export const getters = {
     commentPolicy: state => state.commentPolicy,
     isOrderByFilter: state => state.isOrderByFilter,
 
-    latestProfiles: state => _.orderBy(state.profiles, 'position', 'asc').slice(0, 10),
+    latestProfiles: state => _.sortBy(state.profiles, [function(item) { return item.date }]).slice(0, 8),
 
-    latestPosts: state => _.orderBy(state.posts, 'position', "asc").slice(0, 10),
-
-    latestSongs: state => _.orderBy(state.songs, 'position', "asc").slice(0, 10),
+    latestPosts: state => _.sortBy(state.posts, [function(item) { return item.date }]).slice(0, 8),
 
     featuredProfiles: state => _.filter(state.profiles, ['featured', true]),
 
@@ -73,9 +69,6 @@ export const mutations = {
     },
     SET_SLIDES(state, data) {
         state.slides = data
-    },
-    SET_SONGS(state, data) {
-        state.songs = data
     },
     SET_SETTINGS(state, data) {
         state.settings = data

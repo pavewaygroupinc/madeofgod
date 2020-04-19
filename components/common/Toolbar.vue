@@ -9,7 +9,7 @@
       color="white"
       light
     >
-      <img :data-src="settings.site_logo" class="lazyload" :alt="settings.site_title" style="height: 12rem">
+      <img :data-src="settings.site_logo" class="lazyload" :alt="settings.site_title" style="width: 100%;">
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item to="/">
