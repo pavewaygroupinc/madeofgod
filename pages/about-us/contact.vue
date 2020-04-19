@@ -66,13 +66,13 @@
                 </v-flex>
             </v-layout>
         </v-container>
-        <v-container>
+        <!-- <v-container>
             <v-layout>
                 <v-flex>
                     <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1Q7hEoz1n94AT2IF2EG_NjhziP77H_z8A" width="100%" height="480"></iframe>
                 </v-flex>
             </v-layout>
-        </v-container>
+        </v-container> -->
     </div>
 </template>
 
