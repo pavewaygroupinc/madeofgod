@@ -110,7 +110,7 @@ export function getLatestSongs() {
         display: true
     }))
 
-    return _.orderBy(songs, 'date', "asc").slice(0, 5)
+    return _.orderBy(songs.filter(song => song.featured), 'date', "asc").slice(0, 5)
 }
 
 export function getSongs(number = 5) {
