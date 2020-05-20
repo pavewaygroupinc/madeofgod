@@ -78,6 +78,7 @@ export default {
             { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
             { rel: 'preload', href: 'https://fonts.googleapis.com/icon?family=Material+Icons', as: 'style' },
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
+            { rel: "alternate", type: "application/rss+xml", title: `Blog of ${siteInfo.site_title}`, href: `${siteInfo.site_url}feed.xml` },
             { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity: 'sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin: 'anonymous' }
         ],
         script: [
