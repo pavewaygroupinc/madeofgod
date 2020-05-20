@@ -130,11 +130,17 @@ export default {
         '@nuxtjs/vuetify',
         '@nuxtjs/feed',
         '@nuxtjs/robots',
-        '@nuxtjs/sitemap'
+        '@nuxtjs/sitemap',
+        '@nuxtjs/google-adsense'
         // "nuxt-compress",
         // 'nuxt-purgecss'
         // 'nuxt-responsive-loader'
     ],
+
+    'google-adsense': {
+        id: 'ca-pub-6499537655491254',
+        analyticsDomainName: 'madeofgodtv.com'
+    },
 
     sitemap: {
         hostname: siteInfo.site_url,
