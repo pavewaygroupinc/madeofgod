@@ -17,7 +17,23 @@ var dynamicRoutes = getDynamicPaths({
     '/category': 'categories/posts/*.json'
 });
 
-console.log(dynamicRoutes)
+// console.log(dynamicRoutes)
+console.log(`Get posts for RSS feeds.`)
+let globSearchResults = glob.sync('*.json', { cwd: 'content/blog/posts/' })
+let posts = [];
+
+globSearchResults.forEach(file => {
+    fs.readFile(path.resolve('content/blog/posts', file), 'utf8', function(err, data) {
+        if (err) {
+            console.log("Displaying Error:")
+            console.log(err)
+        } else {
+            let post = JSON.parse(data)
+            post.url = 'https://madeofgodtv.com/blog/' + path.parse(file).name
+            posts.push(post)
+        }
+    })
+})
 
 export default {
     mode: 'universal',
@@ -111,10 +127,42 @@ export default {
         // '@nuxtjs/dotenv',
         '@nuxtjs/markdownit',
         '@nuxtjs/vuetify',
+        '@nuxtjs/feed',
+        '@nuxtjs/robots',
+        '@nuxtjs/sitemap'
         // "nuxt-compress",
         // 'nuxt-purgecss'
         // 'nuxt-responsive-loader'
     ],
+
+    sitemap: {
+        hostname: siteInfo.site_url,
+        gzip: true,
+    },
+
+    feed: [{
+        path: '/feed.xml',
+        async create(feed, data) {
+            feed.options = {
+                title: 'Blog of MadeOfGod Tv',
+                link: siteInfo.site_url,
+                description: siteInfo.site_description
+            }
+            data.forEach(post => {
+                feed.addItem({
+                    title: post.title,
+                    id: post.url,
+                    link: post.url,
+                    date: new Date(post.date),
+                    description: post.description,
+                    content: post.body
+                })
+            })
+        },
+        cacheTime: 1000 * 60 * 15,
+        type: 'rss2',
+        data: posts
+    }],
 
     googleAnalytics: {
         id: 'UA-122657189-1'
@@ -252,6 +300,7 @@ export default {
  * @param {*} urlFilepathTable
  */
 function getDynamicPaths(urlFilepathTable) {
+    console.log(`Generate dynamic routes.`)
     return [].concat(
         ...Object.keys(urlFilepathTable).map(url => {
             var filepathGlob = urlFilepathTable[url];
@@ -259,7 +308,7 @@ function getDynamicPaths(urlFilepathTable) {
                 .sync(filepathGlob, { cwd: 'content' })
                 .map(filepath => `${url}/${path.basename(filepath, '.json')}`)
         })
-    );
+    )
 }
 
 async function changeThemeColor() {
@@ -269,7 +318,7 @@ async function changeThemeColor() {
 
         let colors = data.toString().split(',')
 
-        console.log(colors)
+        // console.log(colors)
 
         const replace = require('replace-in-file')
         const options = {
@@ -281,7 +330,7 @@ async function changeThemeColor() {
 
         try {
             const results = await replace(options)
-            console.log('Replacement results:', results)
+                // console.log('Replacement results:', results)
             fs.writeFile('assets/color.txt', `${siteInfo.site_primary_color},${siteInfo.site_secondary_color}`, 'utf8', callback => (error) => console.log(error))
             console.log('Color changed')
         } catch (error) {
