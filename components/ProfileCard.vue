@@ -41,7 +41,7 @@
         <nuxt-link :to="`/genre/${$options.filters.slugify($options.filters.getGenreById(profile.genre).title)}`" :aria-label="$options.filters.getGenreById(profile.genre).title">{{$options.filters.getGenreById(profile.genre).title}}</nuxt-link>
       </div>
 
-      <p v-text="profile.summary"/>
+      <p v-text="`${profile.summary.slice(0,150)}...`"/>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>

@@ -90,6 +90,7 @@ export default {
         }
     }
         .post-title {
+            line-height: 20px;
             font-size: 16px;
             display: block;
             margin-bottom: 0;

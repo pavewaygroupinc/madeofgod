@@ -35,7 +35,7 @@
                   <v-icon v-show="this.muted">volume_off</v-icon>
                 </v-btn>
                 <v-spacer/>
-                <v-slider class="mt-3" v-model="volume" @input="updateVolume(volume)" max="1" step="0.1" style="width: 120px;" track-color="primary"/>
+                <v-slider class="mt-3" v-model="volume" @input="updateVolume(volume)" max="1" step="0.1" style="width: 120px;" track-color="primary darken-3"/>
                 <span class="mt-3 ml-2">{{ this.volume * 100 + '%' }}</span>
                 <v-btn icon><v-icon>get_app</v-icon></v-btn>
               </v-toolbar-items>
@@ -44,7 +44,7 @@
 			          v-model="trackProgress"  
                 @click="updateSeek($event)"
 			          class="my-0"
-			          color="primary"
+			          color="primary darken-3"
 			          height="5"
 			        />
 			    </v-card>
