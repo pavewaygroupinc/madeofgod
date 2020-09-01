@@ -7,7 +7,7 @@
 
             <div class="share-count">
             <span class="share-icon"> 
-                <v-btn aria-label="Share" rounded fab small color="primary">
+                <v-btn aria-label="Share" rounded fab small color="primary darken-3">
                     <v-icon>share</v-icon> 
                 </v-btn>
             </span>
@@ -28,12 +28,12 @@
                 </div>
             </social-sharing>
             </div>
-            <v-card-title>
+            <v-card-title class="pt-0">
                 <nuxt-link :to="post._path" class="post-title" :aria-label="post.title">
                     {{post.title}}
                 </nuxt-link>
             </v-card-title>
-            <v-card-actions>
+            <v-card-actions class="pt-0">
                 <span class="post-date">
                     {{$options.filters.monthDay(post.date)}}
                 </span>
@@ -44,13 +44,17 @@
                     </nuxt-link>
                 </span>
             </v-card-actions>
-            <div class="bg-gradients mb-30 w-25"></div>
-            <v-card-text class="post-content">
-                <p v-text="post.summary" />
+            <!-- <div class="bg-gradients mb-30 w-25"></div> -->
+            <v-card-text class="post-content pt-0" v-if="post.summary">
+                {{post.summary.slice(0, 120)}}...
+                <nuxt-link :to="post._path" class="read-more-btn d-inline" aria-label="Read more">
+                    read more
+                </nuxt-link>
             </v-card-text>
-            <nuxt-link :to="post._path" class="read-more-btn" aria-label="Read more">
-                Read more
+            <nuxt-link v-else :to="post._path" class="read-more-btn d-inline" aria-label="Read more">
+                read more
             </nuxt-link>
+            <v-divider />
         </v-card>
     </div>
 </template>
@@ -86,10 +90,10 @@ export default {
         }
     }
         .post-title {
-            font-size: 20px;
+            font-size: 16px;
             display: block;
             margin-bottom: 0;
-            font-weight: 900;
+            // font-weight: 800;
             transition-duration: 500ms;
             text-decoration: none;
             outline: 0 solid transparent;

@@ -1,5 +1,5 @@
 <template>
-    <section class="single-post--container section-padding-100">
+    <section class="single-post--container py-4">
       <div class="section-heading">
         <h1 class="secondary--text heading--title">
           Latest Posts

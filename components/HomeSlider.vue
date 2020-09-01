@@ -124,7 +124,7 @@ export default {
   margin: 0;
   padding: 0;
   -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  transition-duration: 0.3s;
   width: 10px;
 }
 .agile__dot--current button, .agile__dot:hover button {
@@ -133,14 +133,14 @@ export default {
 
 .slide {
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   box-sizing: border-box;
   color: #fff;
   display: -webkit-box;
   display: flex;
-  height: 700px;
+  height: 100vh;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 .slide--thumbniail {
   cursor: pointer;

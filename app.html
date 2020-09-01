@@ -5,6 +5,9 @@
     {{ HEAD }}
   </head>
   <body {{ BODY_ATTRS }}>
+    <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email_address" />
+  </form>
     {{ APP }}
     <!--Start of Tawk.to Script-->
       <script type="text/javascript">

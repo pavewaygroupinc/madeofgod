@@ -64,11 +64,10 @@
     </v-navigation-drawer>
     <v-app-bar
       clipped-left
-      color="primary"
+      color="primary darken-3"
       dark
       app
       fixed
-      height="85"
     >
       <nuxt-link to="/" class="toolbar-logo">
         <img :data-src="settings.site_logo" class="lazyload" :alt="settings.site_title" />
@@ -115,7 +114,7 @@ export default {
   width: 230px;
   margin-right: 12px;
   img {
-    width: 100%;
+    width: 75%;
   }
 }
 .navbar-link {

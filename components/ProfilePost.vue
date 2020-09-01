@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="single-profile--content my-4 elevation-10"
+    class="single-profile--content my-4 elevation-0"
     flat
   >
     <nuxt-link :to="profile._path" :aria-label="profile.name">
@@ -9,9 +9,9 @@
       </v-lazy>
     </nuxt-link>
 
-    <div class="share-count">
+    <!-- <div class="share-count">
       <span class="share-icon"> 
-        <v-btn aria-label="Share" rounded fab small color="primary">
+        <v-btn aria-label="Share" rounded fab small color="primary darken-3">
           <v-icon>share</v-icon> 
         </v-btn>
       </span>
@@ -31,7 +31,7 @@
           </network>
         </div>
       </social-sharing>
-    </div>
+    </div> -->
 
     <v-card-title>
       <nuxt-link :to="profile._path" :aria-label="profile.name">{{profile.name}}</nuxt-link>
@@ -43,12 +43,12 @@
         <nuxt-link :to="`/genre/${$options.filters.slugify($options.filters.getGenreById(profile.genre).title)}`" :aria-label="$options.filters.getGenreById(profile.genre).title">{{$options.filters.getGenreById(profile.genre).title}}</nuxt-link>
       </div>
 
-      <div v-text="profile.summary"/>
+      <p v-text="`${profile.summary.slice(0,150)}...`"/>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-title class="pb-0 pt-6">Other Info</v-card-title>
+    <!-- <v-card-title class="pb-0 pt-6">Other Info</v-card-title> -->
 
     <v-card-actions class="mx-3">
       <span>

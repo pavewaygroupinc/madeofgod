@@ -1,7 +1,7 @@
 <template>
     <v-footer
         height="auto"
-        class="white pt-12"
+        class="white px-0 pb-0"
     >
         <v-container grid-list-xl>
             <v-layout row wrap>
@@ -52,25 +52,48 @@
                     <h3 class="headline font-weight-black">
                         Subscribe
                     </h3>
-                    <form action="#" method="post" class="subscribe-form mt-6">
-                        <input type="email" name="subscribe-email" id="subscribeemail">
-                        <button type="submit">subscribe</button>
+                    <form method="post" ref="newsletter" action="/#newsletter" netlify netlify-honeypot="bot-field" name="newsletter" v-on:submit.prevent class="subscribe-form mt-6">
+                        <input type="hidden" name="form-name" value="newsletter" />
+                        <input type="email" name="email-address" id="emailAddress">
+                        <button type="submit" value="Subscribe" class="primary darken-3" @click="submit">subscribe</button>
                     </form>
-                </v-flex>
-                <v-flex xs12>
-                    <v-card
-                        class="flex"
-                        flat
-                        tile
-                    >
-
-                            <v-card-actions class="grey darken-3 justify-center">
-                                <span class="mr-3 white--text">Powered by: <a href="https://pavewaytechnologies.com" class="" style="text-decoration: none; color: #00C853 !important;" target="_blank" rel="noopener">PaveWay Technologies</a></span>
-                            </v-card-actions>
-                    </v-card>
                 </v-flex>
             </v-layout>
         </v-container>
+        <v-card
+            class="flex"
+            flat
+            tile
+        >
+
+            <v-card-actions class="primary darken-3 justify-center">
+                <span class="mr-3 white--text">Powered by: <a class="white--text" href="https://pavewaytechnologies.com" style="text-decoration: none;" target="_blank" rel="noopener">PaveWay Technologies</a></span>
+            </v-card-actions>
+        </v-card>
+
+        <v-dialog
+            v-model="dialog"
+            max-width="290"
+        >
+            <v-card>
+                <v-card-title class="headline">Made of God Tv</v-card-title>
+
+                <v-card-text>
+                    Thanks for subscribing!
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer/>
+                    <v-btn
+                        color="primary darken-1"
+                        text
+                        @click="dialog = false"
+                    >
+                        Okay
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-footer>
 </template>
 
@@ -78,20 +101,43 @@
 import { mapGetters } from 'vuex'
 export default {
     data() {
-      return {}
+      return {
+          dialog: false
+      }
     },
 
     computed: {
         ...mapGetters([
             'settings'
         ])
+    },
+
+    methods: {
+        submit() {
+            const formRef = this.$refs.newsletter
+            console.log(formRef)
+            const formData = new FormData(formRef);
+                fetch(formRef.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: new URLSearchParams(formData).toString()
+                })
+                .then(res => {
+                    if (res) {
+                        this.dialog = true
+                    }
+                });
+        }
     }
 };
 </script>
 
 <style lang="scss" scoped>
 .footer-logo {
-    width: 100%;
+    width: 100px;
 }
 .footer-link-container {
     .footer-link {
